@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Destinations | Lesotho Tourism</title>
+<meta name="description" content="Browse 25 places in Lesotho: waterfalls, mountains, dams, caves and cultural sites. Search, filter by category and save your favourites.">
+<meta name="theme-color" content="#0a1650">
+<link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="css/style.css" rel="stylesheet">
+
+<style>
+.dest-section {
+    padding: 55px 0 70px;
+}
+.dest-toolbar {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 220px;
+    gap: 16px;
+    margin-bottom: 18px;
+}
+#filterButtons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 18px;
+}
+.dest-saved {
+    position: sticky;
+    top: 90px;
+}
+.dest-saved ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+@media (max-width: 575px) {
+    .dest-toolbar {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+</head>
+
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<header>
+<nav class="navbar navbar-expand-xl lt-nav" aria-label="Main navigation">
+<div class="container">
+<a class="navbar-brand" href="index.html">
+<img src="images/logo.svg" alt="" width="38" height="38">
+<span>Lesotho Tourism</span>
+</a>
+<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainMenu" aria-controls="mainMenu" aria-expanded="false" aria-label="Open or close the menu">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="mainMenu">
+<ul class="navbar-nav me-auto mb-2 mb-xl-0 ms-xl-3">
+<li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+<li class="nav-item dropdown">
+<a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Destinations</a>
+<ul class="dropdown-menu">
+<li><a class="dropdown-item" href="destinations.html">All 25 places</a></li>
+<li><hr class="dropdown-divider"></li>
+<li><a class="dropdown-item" href="destinations.html?cat=Mountains%20%26%20Nature">Mountains &amp; Nature</a></li>
+<li><a class="dropdown-item" href="destinations.html?cat=Dams%20%26%20Highlands">Dams &amp; Highlands</a></li>
+<li><a class="dropdown-item" href="destinations.html?cat=History%20%26%20Culture">History &amp; Culture</a></li>
+<li><a class="dropdown-item" href="destinations.html?cat=More%20to%20explore">More to explore</a></li>
+</ul>
+</li>
+<li class="nav-item"><a class="nav-link" href="accommodation.html">Accommodation</a></li>
+<li class="nav-item"><a class="nav-link" href="activities.html">Activities</a></li>
+<li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+<li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+</ul>
+<div class="nav-tools">
+<a class="icon-btn text-decoration-none" href="destinations.html#saved" aria-label="Saved places"><span aria-hidden="true">♥</span> <span data-fav-count>0</span></a>
+<a class="icon-btn text-decoration-none" href="contact.html#account" data-welcome>Sign up</a>
+<button class="icon-btn" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch between light and dark mode"><span class="ico" aria-hidden="true">☾</span> <span class="label">Dark mode</span></button>
+</div>
+</div>
+</div>
+</nav>
+<div class="flag-stripe" role="presentation"></div>
+</header>
+
+<section class="page-hero" aria-labelledby="pageTitle">
+<div class="container">
+<nav aria-label="Breadcrumb">
+<ol class="breadcrumb breadcrumb-lt mb-2">
+<li class="breadcrumb-item"><a href="index.html">Home</a></li>
+<li class="breadcrumb-item active" aria-current="page">Destinations</li>
+</ol>
+</nav>
+<h1 id="pageTitle">Destinations</h1>
+<p class="lead mb-0">25 places to explore, from waterfalls and dams to caves and museums.</p>
+</div>
+</section>
+
+<main id="main">
+<section class="dest-section" aria-labelledby="destTitle">
+<div class="container">
+<div class="row g-4">
+
+<div class="col-lg-9" id="results">
+<h2 id="destTitle" class="mb-3">Find a place to visit</h2>
+
+<form id="searchForm" class="dest-toolbar" role="search" aria-label="Search destinations">
+<div>
+<label class="form-label" for="destSearch">Search</label>
+<input id="destSearch" type="search" class="form-control" placeholder="Try falls, dam, museum or hike" autocomplete="off">
+</div>
+<div>
+<label class="form-label" for="sortSelect">Sort by</label>
+<select id="sortSelect" class="form-select">
+<option value="default">Guide order</option>
+<option value="az">Name, A to Z</option>
+<option value="za">Name, Z to A</option>
+</select>
+</div>
+</form>
+
+<div id="filterButtons" role="group" aria-label="Filter places by category"></div>
+
+<p class="text-muted-lt mb-3" id="resultCount" aria-live="polite">Loading places...</p>
+
+<div class="row g-4" id="destGrid"></div>
+
+<nav class="mt-4" aria-label="Destination pages">
+<ul class="pagination justify-content-center flex-wrap" id="pager"></ul>
+</nav>
+</div>
+
+<aside class="col-lg-3" id="saved" aria-labelledby="savedTitle">
+<div class="sidebar-box dest-saved">
+<h2 class="h5" id="savedTitle">My saved places</h2>
+<ul id="savedList"></ul>
+</div>
+</aside>
+
+</div>
+</div>
+</section>
+</main>
+
+<div class="modal fade" id="detailsModal" tabindex="-1" aria-labelledby="detailsTitle" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable">
+<div class="modal-content" style="border-radius:18px;overflow:hidden">
+<div class="modal-header">
+<h2 class="modal-title h4" id="detailsTitle" data-m-title>Destination details</h2>
+<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+</div>
+<div class="modal-body">
+<div class="row g-4 align-items-start">
+<div class="col-md-6">
+<img data-m-img src="images/maletsunyanefalls.jpg" alt="Destination photograph" class="w-100 rounded-3" width="800" height="600">
+</div>
+<div class="col-md-6">
+<p><span class="badge badge-cat" data-m-cat></span></p>
+<dl class="mb-3">
+<dt>Where</dt>
+<dd data-m-region></dd>
+<dt>About</dt>
+<dd data-m-summary></dd>
+<dt>Best for</dt>
+<dd data-m-best class="mb-0"></dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="modal-footer">
+<button type="button" class="btn btn-ghost" data-bs-dismiss="modal">Close</button>
+<a class="btn btn-green" data-m-book href="contact.html#booking">Plan a visit here</a>
+</div>
+</div>
+</div>
+</div>
+
+<button type="button" class="to-top" id="toTop" aria-label="Back to top">↑</button>
+
+<footer class="lt-footer">
+<div class="container">
+<div class="row g-4">
+<div class="col-lg-4">
+<h2 class="h5">Lesotho Tourism</h2>
+<p>Your guide to the Kingdom in the Sky: mountains, waterfalls, dams, caves and the living culture of the Basotho.</p>
+</div>
+<div class="col-6 col-lg-2">
+<h3 class="h6">Explore</h3>
+<ul>
+<li><a href="destinations.html">Destinations</a></li>
+<li><a href="accommodation.html">Accommodation</a></li>
+<li><a href="activities.html">Activities</a></li>
+<li><a href="gallery.html">Gallery</a></li>
+</ul>
+</div>
+<div class="col-6 col-lg-3">
+<h3 class="h6">Plan</h3>
+<ul>
+<li><a href="contact.html#booking">Book a trip</a></li>
+<li><a href="contact.html#contact">Contact us</a></li>
+<li><a href="contact.html#account">Traveller account</a></li>
+<li><a href="index.html#faq">Travel FAQ</a></li>
+</ul>
+</div>
+<div class="col-lg-3">
+<h3 class="h6">Get in touch</h3>
+<address class="mb-0">Maseru, Lesotho<br><a href="mailto:hello@lesotho-tourism.example">hello@lesotho-tourism.example</a><br><a href="tel:+26622000000">+266 2200 0000</a></address>
+</div>
+</div>
+<hr class="border-light opacity-25 my-4">
+<p class="small mb-0">&copy; <span data-year>2026</span> Lesotho Tourism student project. Web Design 1 (DIWD2110), Limkokwing University of Creative Technology.</p>
+</div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/data-fallback.js"></script>
+<script src="js/main.js"></script>
+<script src="js/destinations.js"></script>
+</body>
+</html>

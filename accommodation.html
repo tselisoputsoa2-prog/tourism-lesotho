@@ -1,0 +1,570 @@
+
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Accommodation | Lesotho Tourism</title>
+<meta name="description" content="Explore lodges, camps, homestays, chalets and hotels in Lesotho. Compare accommodation and calculate your estimated stay cost.">
+<meta name="theme-color" content="#0a1650">
+<link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="css/style.css" rel="stylesheet">
+
+<style>
+.stay-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+}
+.stay-card {
+    height: 100%;
+    overflow: hidden;
+    border-radius: 18px;
+    background: var(--bs-body-bg, #fff);
+    border: 1px solid rgba(100, 116, 139, 0.2);
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.07);
+    transition: transform .2s ease, box-shadow .2s ease;
+}
+.stay-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 14px 32px rgba(15, 23, 42, 0.13);
+}
+.stay-image {
+    position: relative;
+    height: 230px;
+    overflow: hidden;
+    background: #e2e8f0;
+}
+.stay-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+.stay-tag {
+    position: absolute;
+    left: 14px;
+    top: 14px;
+    padding: 7px 12px;
+    border-radius: 30px;
+    background: #fff;
+    color: #0a1650;
+    font-size: .78rem;
+    font-weight: 700;
+}
+.stay-body {
+    padding: 22px;
+}
+.stay-body h3 {
+    font-size: 1.35rem;
+    font-weight: 800;
+    margin-bottom: 10px;
+}
+.stay-body p {
+    line-height: 1.6;
+}
+.stay-features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    margin: 14px 0;
+}
+.stay-feature {
+    padding: 5px 9px;
+    border-radius: 20px;
+    background: #e7f5ec;
+    color: #17643a;
+    font-size: .75rem;
+    font-weight: 600;
+}
+.stay-price {
+    color: #0a1650;
+    font-size: 1.35rem;
+    font-weight: 800;
+}
+.stay-price small {
+    display: block;
+    color: #64748b;
+    font-size: .8rem;
+    font-weight: 500;
+}
+.stay-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: 20px;
+}
+.calc-result {
+    padding: 26px;
+    border-radius: 18px;
+    background: #0a1650;
+    color: #fff;
+}
+.calc-result .total {
+    font-size: 2rem;
+    font-weight: 800;
+}
+.calc-result li {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 9px 0;
+    border-bottom: 1px solid rgba(255,255,255,.2);
+}
+.calc-result li span:last-child {
+    text-align: right;
+    font-weight: 600;
+}
+.btn-green {
+    background: #38b66b;
+    color: #071b11;
+    border: none;
+    font-weight: 700;
+}
+.btn-green:hover {
+    background: #56d483;
+    color: #071b11;
+}
+.stay-section {
+    padding: 60px 0;
+}
+.stay-section-alt {
+    background: rgba(148, 163, 184, .09);
+}
+@media (max-width: 991px) {
+    .stay-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+@media (max-width: 575px) {
+    .stay-grid {
+        grid-template-columns: 1fr;
+    }
+    .stay-image {
+        height: 240px;
+    }
+    .stay-bottom {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}
+</style>
+</head>
+
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<header>
+<nav class="navbar navbar-expand-xl lt-nav" aria-label="Main navigation">
+<div class="container">
+<a class="navbar-brand" href="index.html">
+<img src="images/logo.svg" alt="" width="38" height="38">
+<span>Lesotho Tourism</span>
+</a>
+<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainMenu" aria-controls="mainMenu" aria-expanded="false" aria-label="Open or close the menu">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="mainMenu">
+<ul class="navbar-nav me-auto mb-2 mb-xl-0 ms-xl-3">
+<li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+<li class="nav-item dropdown">
+<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Destinations</a>
+<ul class="dropdown-menu">
+<li><a class="dropdown-item" href="destinations.html">All 25 places</a></li>
+<li><hr class="dropdown-divider"></li>
+<li><a class="dropdown-item" href="destinations.html?cat=Mountains%20%26%20Nature">Mountains &amp; Nature</a></li>
+<li><a class="dropdown-item" href="destinations.html?cat=Dams%20%26%20Highlands">Dams &amp; Highlands</a></li>
+<li><a class="dropdown-item" href="destinations.html?cat=History%20%26%20Culture">History &amp; Culture</a></li>
+<li><a class="dropdown-item" href="destinations.html?cat=More%20to%20explore">More to explore</a></li>
+</ul>
+</li>
+<li class="nav-item"><a class="nav-link active" href="accommodation.html">Accommodation</a></li>
+<li class="nav-item"><a class="nav-link" href="activities.html">Activities</a></li>
+<li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+<li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+</ul>
+<div class="nav-tools">
+<a class="icon-btn text-decoration-none" href="destinations.html#saved" aria-label="Saved places"><span aria-hidden="true">♥</span> <span data-fav-count>0</span></a>
+<a class="icon-btn text-decoration-none" href="contact.html#account" data-welcome>Sign up</a>
+<button class="icon-btn" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch between light and dark mode"><span class="ico" aria-hidden="true">☾</span> <span class="label">Dark mode</span></button>
+</div>
+</div>
+</div>
+</nav>
+<div class="flag-stripe" role="presentation"></div>
+</header>
+
+<section class="page-hero" aria-labelledby="pageTitle">
+<div class="container">
+<nav aria-label="Breadcrumb">
+<ol class="breadcrumb breadcrumb-lt mb-2">
+<li class="breadcrumb-item"><a href="index.html">Home</a></li>
+<li class="breadcrumb-item active" aria-current="page">Accommodation</li>
+</ol>
+</nav>
+<h1 id="pageTitle">Accommodation</h1>
+<p class="lead mb-0">From a tent by a river to a snow chalet. Compare, calculate and enquire.</p>
+</div>
+</section>
+
+<main id="main">
+
+<section class="stay-section" aria-labelledby="stayTitle">
+<div class="container">
+<div class="section-head">
+<h2 id="stayTitle">Where to sleep</h2>
+<p>Find a comfortable place to stay while exploring the Kingdom in the Sky.</p>
+<div class="alert alert-lt-info mt-3" role="note"><strong>Sample rates.</strong> Prices are examples in maloti (M) for this student project. Confirm actual rates with each provider.</div>
+</div>
+
+<div class="stay-grid">
+
+<article class="stay-card">
+<div class="stay-image">
+<img src="images/stay-lodge.jpg" alt="Mountain lodge with stone buildings and views of the Lesotho highlands" loading="lazy" width="800" height="600">
+<span class="stay-tag">Mountain lodge</span>
+</div>
+<div class="stay-body">
+<h3>Highland Lodge</h3>
+<p>Stone-and-thatch rooms with log fires and beautiful valley views.</p>
+<div class="stay-features">
+<span class="stay-feature">Breakfast included</span>
+<span class="stay-feature">Wi-Fi</span>
+<span class="stay-feature">Parking</span>
+</div>
+<p class="where">Best for: Couples and small groups</p>
+<div class="stay-bottom">
+<span class="stay-price">M1,450<small>Per room, per night</small></span>
+<a class="btn btn-brand btn-sm" href="contact.html#booking">Enquire</a>
+</div>
+</div>
+</article>
+
+<article class="stay-card">
+<div class="stay-image">
+<img src="images/stay-camp.jpg" alt="Camping tents beside a river in a scenic mountain landscape" loading="lazy" width="800" height="600">
+<span class="stay-tag">Camping</span>
+</div>
+<div class="stay-body">
+<h3>Riverside Camp</h3>
+<p>Comfortable camping tents with shared hot showers and a campfire area.</p>
+<div class="stay-features">
+<span class="stay-feature">Self-catering</span>
+<span class="stay-feature">Hiking trails</span>
+</div>
+<p class="where">Best for: Budget hikers</p>
+<div class="stay-bottom">
+<span class="stay-price">M450<small>Per tent, per night</small></span>
+<a class="btn btn-brand btn-sm" href="contact.html#booking">Enquire</a>
+</div>
+</div>
+</article>
+
+<article class="stay-card">
+<div class="stay-image">
+<img src="images/stay-village.jpg" alt="Traditional village homes in the Lesotho countryside" loading="lazy" width="800" height="600">
+<span class="stay-tag">Community stay</span>
+</div>
+<div class="stay-body">
+<h3>Village Homestay</h3>
+<p>Stay with a host family and experience local meals, stories and Basotho traditions.</p>
+<div class="stay-features">
+<span class="stay-feature">Meals available</span>
+<span class="stay-feature">Pony trekking</span>
+</div>
+<p class="where">Best for: Culture seekers</p>
+<div class="stay-bottom">
+<span class="stay-price">M600<small>Per room, per night</small></span>
+<a class="btn btn-brand btn-sm" href="contact.html#booking">Enquire</a>
+</div>
+</div>
+</article>
+
+<article class="stay-card">
+<div class="stay-image">
+<img src="images/stay-chalet.jpg" alt="Mountain chalet surrounded by highland scenery" loading="lazy" width="800" height="600">
+<span class="stay-tag">Ski chalet</span>
+</div>
+<div class="stay-body">
+<h3>Snow Chalet</h3>
+<p>Warm chalets near the slopes, with heating and storage for winter equipment.</p>
+<div class="stay-features">
+<span class="stay-feature">Heating</span>
+<span class="stay-feature">Ski storage</span>
+<span class="stay-feature">Restaurant</span>
+</div>
+<p class="where">Best for: Winter visitors</p>
+<div class="stay-bottom">
+<span class="stay-price">M2,200<small>Per room, per night</small></span>
+<a class="btn btn-brand btn-sm" href="contact.html#booking">Enquire</a>
+</div>
+</div>
+</article>
+
+<article class="stay-card">
+<div class="stay-image">
+<img src="images/stay-rondavel.jpg" alt="Traditional round thatched rondavel in a green garden" loading="lazy" width="800" height="600">
+<span class="stay-tag">Guesthouse</span>
+</div>
+<div class="stay-body">
+<h3>Rondavel Guesthouse</h3>
+<p>Traditional round, thatched accommodation in a peaceful garden setting.</p>
+<div class="stay-features">
+<span class="stay-feature">Breakfast included</span>
+<span class="stay-feature">Garden</span>
+</div>
+<p class="where">Best for: Families</p>
+<div class="stay-bottom">
+<span class="stay-price">M850<small>Per room, per night</small></span>
+<a class="btn btn-brand btn-sm" href="contact.html#booking">Enquire</a>
+</div>
+</div>
+</article>
+
+<article class="stay-card">
+<div class="stay-image">
+<img src="images/stay-hotel.jpg" alt="Modern hotel building in Maseru with guest facilities" loading="lazy" width="800" height="600">
+<span class="stay-tag">City hotel</span>
+</div>
+<div class="stay-body">
+<h3>Maseru City Hotel</h3>
+<p>Comfortable city rooms with a pool and tour arrangements at reception.</p>
+<div class="stay-features">
+<span class="stay-feature">Pool</span>
+<span class="stay-feature">Wi-Fi</span>
+<span class="stay-feature">Airport transfer</span>
+</div>
+<p class="where">Best for: Short city stays</p>
+<div class="stay-bottom">
+<span class="stay-price">M1,650<small>Per room, per night</small></span>
+<a class="btn btn-brand btn-sm" href="contact.html#booking">Enquire</a>
+</div>
+</div>
+</article>
+
+</div>
+</div>
+</section>
+
+<section class="stay-section stay-section-alt" aria-labelledby="cmpTitle">
+<div class="container">
+<h2 id="cmpTitle" class="mb-4">Compare at a glance</h2>
+<div class="table-responsive">
+<table class="table table-lt table-striped align-middle">
+<caption class="text-muted-lt">Sample rates per room or tent per night.</caption>
+<thead>
+<tr>
+<th scope="col">Name</th>
+<th scope="col">Type</th>
+<th scope="col">Rate</th>
+<th scope="col">Includes</th>
+</tr>
+</thead>
+<tbody>
+<tr><th scope="row">Highland Lodge</th><td>Mountain lodge</td><td>M1,450</td><td>Breakfast, Wi-Fi, parking</td></tr>
+<tr><th scope="row">Riverside Camp</th><td>Camping</td><td>M450</td><td>Self-catering, hiking trails</td></tr>
+<tr><th scope="row">Village Homestay</th><td>Community stay</td><td>M600</td><td>Meals available, pony trekking</td></tr>
+<tr><th scope="row">Snow Chalet</th><td>Ski chalet</td><td>M2,200</td><td>Heating, ski storage, restaurant</td></tr>
+<tr><th scope="row">Rondavel Guesthouse</th><td>Guesthouse</td><td>M850</td><td>Breakfast, garden</td></tr>
+<tr><th scope="row">Maseru City Hotel</th><td>City hotel</td><td>M1,650</td><td>Pool, Wi-Fi, airport transfer</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+
+<section class="stay-section" aria-labelledby="calcTitle">
+<div class="container">
+<div class="row g-4 align-items-start">
+<div class="col-lg-7">
+<h2 id="calcTitle">Stay cost calculator</h2>
+<p>Choose your accommodation and calculate the estimated cost. Bookings of five nights or more receive a 10% sample discount.</p>
+<form id="stayCalc" class="form-panel">
+<div class="row g-3">
+<div class="col-12">
+<label class="form-label" for="scStay">Accommodation</label>
+<select id="scStay" name="stay" class="form-select">
+<option value="stay-lodge" data-rate="1450">Highland Lodge - M1,450</option>
+<option value="stay-camp" data-rate="450">Riverside Camp - M450</option>
+<option value="stay-village" data-rate="600">Village Homestay - M600</option>
+<option value="stay-chalet" data-rate="2200">Snow Chalet - M2,200</option>
+<option value="stay-rondavel" data-rate="850">Rondavel Guesthouse - M850</option>
+<option value="stay-hotel" data-rate="1650">Maseru City Hotel - M1,650</option>
+</select>
+</div>
+<div class="col-6">
+<label class="form-label" for="scNights">Nights</label>
+<input id="scNights" name="nights" type="number" class="form-control" min="1" max="30" value="2" required>
+</div>
+<div class="col-6">
+<label class="form-label" for="scRooms">Rooms or tents</label>
+<input id="scRooms" name="rooms" type="number" class="form-control" min="1" max="10" value="1" required>
+</div>
+<div class="col-12">
+<div class="form-check">
+<input class="form-check-input" type="checkbox" id="scBreakfast" name="breakfast">
+<label class="form-check-label" for="scBreakfast">Add breakfast for two daily (M120 per person)</label>
+</div>
+</div>
+</div>
+</form>
+</div>
+
+<div class="col-lg-5">
+<div class="calc-result" aria-live="polite" aria-atomic="true">
+<h3 class="h5 text-white">Your estimate</h3>
+<ul class="list-unstyled mb-3" id="scLines">
+<li><span>Accommodation</span><span>M2,900</span></li>
+<li><span>Discount</span><span>M0</span></li>
+<li><span>Breakfast</span><span>M0</span></li>
+</ul>
+<div class="d-flex justify-content-between align-items-end gap-3">
+<span>Total</span>
+<span class="total" id="scTotal">M2,900</span>
+</div>
+<a href="contact.html#booking" class="btn btn-green w-100 mt-3">Continue to booking</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="stay-section stay-section-alt" aria-labelledby="tipTitle">
+<div class="container">
+<h2 id="tipTitle" class="mb-4">Booking tips</h2>
+<div class="accordion" id="tipAccordion">
+<div class="accordion-item">
+<h3 class="accordion-header">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#t1" aria-expanded="true" aria-controls="t1">Book early for winter and festivals</button>
+</h3>
+<div id="t1" class="accordion-collapse collapse show" data-bs-parent="#tipAccordion">
+<div class="accordion-body">Ski chalets and accommodation during popular festival weeks can fill up quickly. Reserve in advance.</div>
+</div>
+</div>
+<div class="accordion-item">
+<h3 class="accordion-header">
+<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#t2" aria-expanded="false" aria-controls="t2">What to bring to a mountain stay</button>
+</h3>
+<div id="t2" class="accordion-collapse collapse" data-bs-parent="#tipAccordion">
+<div class="accordion-body">Pack warm layers, a rain jacket, a torch, sun protection and cash in maloti or rand. Electricity may be limited at remote camps.</div>
+</div>
+</div>
+<div class="accordion-item">
+<h3 class="accordion-header">
+<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#t3" aria-expanded="false" aria-controls="t3">Staying with a host family</button>
+</h3>
+<div id="t3" class="accordion-collapse collapse" data-bs-parent="#tipAccordion">
+<div class="accordion-body">Greet people warmly, ask permission before taking photographs and follow your host's guidance on local customs.</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+</main>
+
+<button type="button" class="to-top" id="toTop" aria-label="Back to top">↑</button>
+
+<footer class="lt-footer">
+<div class="container">
+<div class="row g-4">
+<div class="col-lg-4">
+<h2 class="h5">Lesotho Tourism</h2>
+<p>Your guide to the Kingdom in the Sky: mountains, waterfalls, dams, caves and the living culture of the Basotho.</p>
+</div>
+<div class="col-6 col-lg-2">
+<h3 class="h6">Explore</h3>
+<ul>
+<li><a href="destinations.html">Destinations</a></li>
+<li><a href="accommodation.html">Accommodation</a></li>
+<li><a href="activities.html">Activities</a></li>
+<li><a href="gallery.html">Gallery</a></li>
+</ul>
+</div>
+<div class="col-6 col-lg-3">
+<h3 class="h6">Plan</h3>
+<ul>
+<li><a href="contact.html#booking">Book a trip</a></li>
+<li><a href="contact.html#contact">Contact us</a></li>
+<li><a href="contact.html#account">Traveller account</a></li>
+<li><a href="index.html#faq">Travel FAQ</a></li>
+</ul>
+</div>
+<div class="col-lg-3">
+<h3 class="h6">Get in touch</h3>
+<address class="mb-0">Maseru, Lesotho<br><a href="mailto:hello@lesotho-tourism.example">hello@lesotho-tourism.example</a><br><a href="tel:+26622000000">+266 2200 0000</a></address>
+</div>
+</div>
+<hr class="border-light opacity-25 my-4">
+<p class="small mb-0">&copy; <span data-year>2026</span> Lesotho Tourism student project. Web Design 1 (DIWD2110), Limkokwing University of Creative Technology.</p>
+</div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/data-fallback.js"></script>
+<script src="js/main.js"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const staySelect = document.getElementById("scStay");
+    const nightsInput = document.getElementById("scNights");
+    const roomsInput = document.getElementById("scRooms");
+    const breakfastInput = document.getElementById("scBreakfast");
+    const lines = document.getElementById("scLines");
+    const totalDisplay = document.getElementById("scTotal");
+
+    function formatMoney(amount) {
+        return "M" + Math.round(amount).toLocaleString("en-US");
+    }
+
+    function updateCalculator() {
+        const selectedOption = staySelect.options[staySelect.selectedIndex];
+        const rate = Number(selectedOption.dataset.rate);
+        const nights = Math.min(30, Math.max(1, Number(nightsInput.value) || 1));
+        const rooms = Math.min(10, Math.max(1, Number(roomsInput.value) || 1));
+
+        nightsInput.value = nights;
+        roomsInput.value = rooms;
+
+        const accommodationCost = rate * nights * rooms;
+        const discount = nights >= 5 ? accommodationCost * 0.10 : 0;
+        const breakfast = breakfastInput.checked ? 240 * nights * rooms : 0;
+        const total = accommodationCost - discount + breakfast;
+
+        lines.innerHTML = "";
+
+        const items = [
+            ["Accommodation", formatMoney(accommodationCost)],
+            ["Discount", discount > 0 ? "-" + formatMoney(discount) : formatMoney(0)],
+            ["Breakfast", formatMoney(breakfast)]
+        ];
+
+        items.forEach(function (item) {
+            const li = document.createElement("li");
+            const label = document.createElement("span");
+            const amount = document.createElement("span");
+            label.textContent = item[0];
+            amount.textContent = item[1];
+            li.appendChild(label);
+            li.appendChild(amount);
+            lines.appendChild(li);
+        });
+
+        totalDisplay.textContent = formatMoney(total);
+    }
+
+    staySelect.addEventListener("change", updateCalculator);
+    nightsInput.addEventListener("input", updateCalculator);
+    roomsInput.addEventListener("input", updateCalculator);
+    breakfastInput.addEventListener("change", updateCalculator);
+
+    updateCalculator();
+});
+</script>
+</body>
+</html>

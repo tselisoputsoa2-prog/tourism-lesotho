@@ -1,0 +1,532 @@
+
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Activities | Lesotho Tourism</title>
+<meta name="description" content="Explore pony trekking, hiking, skiing, abseiling, birdwatching and Basotho culture in Lesotho.">
+<meta name="theme-color" content="#0a1650">
+<link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="css/style.css" rel="stylesheet">
+
+<style>
+.activities-section {
+    padding: 55px 0 70px;
+}
+.activity-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+.activity-filter {
+    border: 1px solid #d4dbea;
+    background: transparent;
+    color: #0a1650;
+    padding: 9px 17px;
+    border-radius: 30px;
+    font-weight: 600;
+    transition: .2s ease;
+}
+.activity-filter:hover,
+.activity-filter.active {
+    background: #0a1650;
+    border-color: #0a1650;
+    color: #fff;
+}
+.activity-card {
+    height: 100%;
+    overflow: hidden;
+    border-radius: 15px;
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 5px 20px rgba(10,22,80,.07);
+    transition: transform .25s ease, box-shadow .25s ease;
+}
+.activity-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 28px rgba(10,22,80,.14);
+}
+.activity-image {
+    position: relative;
+    overflow: hidden;
+    height: 235px;
+    background: #e2e8f0;
+}
+.activity-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform .4s ease;
+}
+.activity-card:hover .activity-image img {
+    transform: scale(1.05);
+}
+.activity-tag {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    border-radius: 30px;
+    padding: 6px 12px;
+    background: #fff;
+    color: #0a1650;
+    font-size: .78rem;
+    font-weight: 700;
+}
+.activity-body {
+    padding: 22px;
+}
+.activity-body h3 {
+    font-size: 1.25rem;
+    font-weight: 800;
+    margin-bottom: 10px;
+    color: #0a1650;
+}
+.activity-body p {
+    line-height: 1.65;
+}
+.activity-details {
+    list-style: none;
+    padding: 0;
+    margin: 18px 0;
+    font-size: .91rem;
+}
+.activity-details li {
+    padding: 5px 0;
+    border-bottom: 1px solid #edf0f5;
+}
+.activity-details strong {
+    color: #0a1650;
+}
+.activity-action {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin-top: 18px;
+}
+.activity-action a {
+    text-decoration: none;
+}
+.activity-sidebar {
+    border: 1px solid #e0e6ef;
+    background: #f6f8fc;
+    border-radius: 15px;
+    padding: 24px;
+}
+.activity-sidebar h2 {
+    color: #0a1650;
+    font-weight: 800;
+}
+.activity-sidebar li {
+    margin-bottom: 12px;
+    line-height: 1.55;
+}
+.activity-empty {
+    border: 1px dashed #b7c2d5;
+    border-radius: 14px;
+    text-align: center;
+    padding: 35px 20px;
+}
+.activity-empty h3 {
+    color: #0a1650;
+}
+@media (max-width: 575px) {
+    .activity-image {
+        height: 220px;
+    }
+    .activity-body {
+        padding: 18px;
+    }
+    .activity-filter {
+        padding: 8px 13px;
+        font-size: .9rem;
+    }
+}
+</style>
+</head>
+
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<header>
+<nav class="navbar navbar-expand-xl lt-nav" aria-label="Main navigation">
+<div class="container">
+<a class="navbar-brand" href="index.html">
+<img src="images/logo.svg" alt="" width="38" height="38">
+<span>Lesotho Tourism</span>
+</a>
+<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainMenu" aria-controls="mainMenu" aria-expanded="false" aria-label="Open or close the menu">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="mainMenu">
+<ul class="navbar-nav me-auto mb-2 mb-xl-0 ms-xl-3">
+<li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+<li class="nav-item dropdown">
+<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Destinations</a>
+<ul class="dropdown-menu">
+<li><a class="dropdown-item" href="destinations.html">All 25 places</a></li>
+<li><hr class="dropdown-divider"></li>
+<li><a class="dropdown-item" href="destinations.html?cat=Mountains%20%26%20Nature">Mountains &amp; Nature</a></li>
+<li><a class="dropdown-item" href="destinations.html?cat=Dams%20%26%20Highlands">Dams &amp; Highlands</a></li>
+<li><a class="dropdown-item" href="destinations.html?cat=History%20%26%20Culture">History &amp; Culture</a></li>
+<li><a class="dropdown-item" href="destinations.html?cat=More%20to%20explore">More to explore</a></li>
+</ul>
+</li>
+<li class="nav-item"><a class="nav-link" href="accommodation.html">Accommodation</a></li>
+<li class="nav-item"><a class="nav-link active" href="activities.html" aria-current="page">Activities</a></li>
+<li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+<li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+</ul>
+<div class="nav-tools">
+<a class="icon-btn text-decoration-none" href="destinations.html#saved" aria-label="Saved places"><span aria-hidden="true">♥</span> <span data-fav-count>0</span></a>
+<a class="icon-btn text-decoration-none" href="contact.html#account" data-welcome>Sign up</a>
+<button class="icon-btn" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch between light and dark mode"><span class="ico" aria-hidden="true">☾</span> <span class="label">Dark mode</span></button>
+</div>
+</div>
+</div>
+</nav>
+<div class="flag-stripe" role="presentation"></div>
+</header>
+
+<section class="page-hero" aria-labelledby="pageTitle">
+<div class="container">
+<nav aria-label="Breadcrumb">
+<ol class="breadcrumb breadcrumb-lt mb-2">
+<li class="breadcrumb-item"><a href="index.html">Home</a></li>
+<li class="breadcrumb-item active" aria-current="page">Activities</li>
+</ol>
+</nav>
+<h1 id="pageTitle">Things to do in Lesotho</h1>
+<p class="lead mb-0">Discover mountain adventures, beautiful landscapes and the living culture of the Basotho.</p>
+</div>
+</section>
+
+<main id="main">
+<section class="activities-section" aria-labelledby="activityTitle">
+<div class="container">
+<div class="row g-4">
+<div class="col-lg-9">
+<h2 id="activityTitle" class="mb-3">Explore activities</h2>
+<p class="text-muted-lt mb-4">Choose an activity that suits your interests, schedule and experience.</p>
+
+<div class="row g-3 align-items-end mb-4">
+<div class="col-md-5">
+<label class="form-label" for="activitySearch">Search activities</label>
+<input id="activitySearch" type="search" class="form-control" placeholder="Try skiing, pony riding or birds">
+</div>
+<div class="col-md-7">
+<div id="activityFilters" class="activity-filters" role="group" aria-label="Filter activities by type">
+<button type="button" class="activity-filter active" data-filter="all" aria-pressed="true">All</button>
+<button type="button" class="activity-filter" data-filter="adventure" aria-pressed="false">Adventure</button>
+<button type="button" class="activity-filter" data-filter="nature" aria-pressed="false">Nature</button>
+<button type="button" class="activity-filter" data-filter="culture" aria-pressed="false">Culture</button>
+</div>
+</div>
+</div>
+
+<p class="text-muted-lt mb-3" id="activityCount" aria-live="polite">Showing 6 activities</p>
+
+<div class="row g-4" id="activityGrid">
+
+<div class="col-12 col-md-6 col-xl-4 activity-item" data-activity="adventure">
+<article class="activity-card">
+<div class="activity-image">
+<img src="images/pony-trekking.jpg" alt="Basotho ponies on a highland trail" loading="lazy" width="800" height="600">
+<span class="activity-tag">Adventure</span>
+</div>
+<div class="activity-body">
+<h3>Pony trekking</h3>
+<p>Ride sure-footed Basotho ponies through mountain trails, rural villages and spectacular viewpoints.</p>
+<ul class="activity-details">
+<li><strong>Where:</strong> Malealea and the Highlands</li>
+<li><strong>Time:</strong> Half day to 5 days</li>
+<li><strong>Level:</strong> Easy to moderate</li>
+</ul>
+<div class="activity-action">
+<span class="small text-muted-lt">Explore the countryside</span>
+<a class="btn btn-brand btn-sm" href="contact.html#booking">Enquire</a>
+</div>
+</div>
+</article>
+</div>
+
+<div class="col-12 col-md-6 col-xl-4 activity-item" data-activity="nature">
+<article class="activity-card">
+<div class="activity-image">
+<img src="images/tsehlanyane.jpg" alt="Mountain landscape at Tsehlanyane National Park" loading="lazy" width="800" height="600">
+<span class="activity-tag">Nature</span>
+</div>
+<div class="activity-body">
+<h3>Hiking</h3>
+<p>Discover mountain trails, fresh air and beautiful highland views, from gentle walks to multi-day treks.</p>
+<ul class="activity-details">
+<li><strong>Where:</strong> Tsehlanyane and Thabana Ntlenyana</li>
+<li><strong>Time:</strong> 1 hour to 4 days</li>
+<li><strong>Level:</strong> Easy to challenging</li>
+</ul>
+<div class="activity-action">
+<span class="small text-muted-lt">Explore the highlands</span>
+<a class="btn btn-brand btn-sm" href="contact.html#booking">Enquire</a>
+</div>
+</div>
+</article>
+</div>
+
+<div class="col-12 col-md-6 col-xl-4 activity-item" data-activity="adventure">
+<article class="activity-card">
+<div class="activity-image">
+<img src="images/afriski-mountain-resort.jpg" alt="Snow-covered mountain slopes at Afriski Mountain Resort" loading="lazy" width="800" height="600">
+<span class="activity-tag">Adventure</span>
+</div>
+<div class="activity-body">
+<h3>Skiing and snow play</h3>
+<p>Experience winter in the mountains, with skiing, snow activities and lessons when conditions permit.</p>
+<ul class="activity-details">
+<li><strong>Where:</strong> Afriski Mountain Resort</li>
+<li><strong>Season:</strong> Winter, usually June to August</li>
+<li><strong>Level:</strong> Beginner to advanced</li>
+</ul>
+<div class="activity-action">
+<span class="small text-muted-lt">Enjoy the winter season</span>
+<a class="btn btn-brand btn-sm" href="contact.html#booking">Enquire</a>
+</div>
+</div>
+</article>
+</div>
+
+<div class="col-12 col-md-6 col-xl-4 activity-item" data-activity="adventure">
+<article class="activity-card">
+<div class="activity-image">
+<img src="images/maletsunyanefalls.jpg" alt="Maletsunyane Falls dropping down a dramatic rocky cliff" loading="lazy" width="800" height="600">
+<span class="activity-tag">Adventure</span>
+</div>
+<div class="activity-body">
+<h3>Abseiling</h3>
+<p>Enjoy a guided waterfall adventure near one of Lesotho's most spectacular natural landmarks.</p>
+<ul class="activity-details">
+<li><strong>Where:</strong> Maletsunyane Falls</li>
+<li><strong>Time:</strong> Allow half a day or more</li>
+<li><strong>Level:</strong> Guided activity for suitable participants</li>
+</ul>
+<div class="activity-action">
+<span class="small text-muted-lt">Use a qualified operator</span>
+<a class="btn btn-brand btn-sm" href="contact.html#booking">Enquire</a>
+</div>
+</div>
+</article>
+</div>
+
+<div class="col-12 col-md-6 col-xl-4 activity-item" data-activity="nature">
+<article class="activity-card">
+<div class="activity-image">
+<img src="images/bokong.jpg" alt="Open highland scenery around Bokong Nature Reserve" loading="lazy" width="800" height="600">
+<span class="activity-tag">Nature</span>
+</div>
+<div class="activity-body">
+<h3>Birdwatching</h3>
+<p>Look for birds of prey and highland species while exploring wetlands, cliffs and open landscapes.</p>
+<ul class="activity-details">
+<li><strong>Where:</strong> Bokong and Lake Letsie</li>
+<li><strong>Time:</strong> Early morning is often rewarding</li>
+<li><strong>Level:</strong> Easy to moderate</li>
+</ul>
+<div class="activity-action">
+<span class="small text-muted-lt">Bring binoculars</span>
+<a class="btn btn-brand btn-sm" href="contact.html#booking">Enquire</a>
+</div>
+</div>
+</article>
+</div>
+
+<div class="col-12 col-md-6 col-xl-4 activity-item" data-activity="culture">
+<article class="activity-card">
+<div class="activity-image">
+<img src="images/morija-museum.jpg" alt="Cultural heritage setting at Morija Museum" loading="lazy" width="800" height="600">
+<span class="activity-tag">Culture</span>
+</div>
+<div class="activity-body">
+<h3>Culture and crafts</h3>
+<p>Learn about Basotho history, traditional crafts, storytelling and the cultural heritage of Lesotho.</p>
+<ul class="activity-details">
+<li><strong>Where:</strong> Morija and Thaba Bosiu</li>
+<li><strong>Time:</strong> 1 to 3 hours</li>
+<li><strong>Level:</strong> Easy</li>
+</ul>
+<div class="activity-action">
+<span class="small text-muted-lt">Discover local traditions</span>
+<a class="btn btn-brand btn-sm" href="contact.html#booking">Enquire</a>
+</div>
+</div>
+</article>
+</div>
+
+</div>
+
+<div id="activityEmpty" class="activity-empty mt-4" hidden>
+<h3>No activities found</h3>
+<p class="mb-3">Try a different search or select another category.</p>
+<button type="button" class="btn btn-brand" id="clearActivityFilters">Show all activities</button>
+</div>
+</div>
+
+<aside class="col-lg-3" aria-labelledby="safeTitle">
+<div class="activity-sidebar" style="position:sticky;top:90px">
+<h2 class="h5" id="safeTitle">Stay safe in the mountains</h2>
+<ul class="ps-3 mt-3 mb-3">
+<li>Check the weather before setting out.</li>
+<li>Use a local guide on unfamiliar or difficult routes.</li>
+<li>Tell your host or someone you trust where you are going.</li>
+<li>Carry enough water, food and warm clothing.</li>
+<li>Wear suitable shoes and follow local safety advice.</li>
+</ul>
+<div class="alert alert-lt-warm small mb-0" role="note">Mountain weather can change quickly. Postpone your activity if conditions are unsafe.</div>
+</div>
+</aside>
+</div>
+</div>
+</section>
+
+<section class="section section-alt" aria-labelledby="seasonTitle">
+<div class="container">
+<h2 id="seasonTitle" class="mb-4">What to do, and when</h2>
+<div class="table-responsive">
+<table class="table table-lt table-striped align-middle">
+<caption class="text-muted-lt">General seasonal guide. Weather and activity availability can change each year.</caption>
+<thead>
+<tr>
+<th scope="col">Activity</th>
+<th scope="col">Summer<br><small>Dec–Feb</small></th>
+<th scope="col">Autumn<br><small>Mar–May</small></th>
+<th scope="col">Winter<br><small>Jun–Aug</small></th>
+<th scope="col">Spring<br><small>Sep–Nov</small></th>
+</tr>
+</thead>
+<tbody>
+<tr><th scope="row">Pony trekking</th><td>Good</td><td>Very good</td><td>Cold conditions</td><td>Very good</td></tr>
+<tr><th scope="row">Hiking</th><td>Good; watch storms</td><td>Very good</td><td>Cold; possible ice</td><td>Very good</td></tr>
+<tr><th scope="row">Skiing</th><td>Generally unavailable</td><td>Generally unavailable</td><td>Best chance</td><td>Conditions vary</td></tr>
+<tr><th scope="row">Abseiling</th><td>Weather dependent</td><td>Weather dependent</td><td>Cold conditions</td><td>Weather dependent</td></tr>
+<tr><th scope="row">Birdwatching</th><td>Very good</td><td>Good</td><td>Good</td><td>Very good</td></tr>
+<tr><th scope="row">Culture and crafts</th><td>Good</td><td>Good</td><td>Good</td><td>Good</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+</main>
+
+<button type="button" class="to-top" id="toTop" aria-label="Back to top">↑</button>
+
+<footer class="lt-footer">
+<div class="container">
+<div class="row g-4">
+<div class="col-lg-4">
+<h2 class="h5">Lesotho Tourism</h2>
+<p>Your guide to the Kingdom in the Sky: mountains, waterfalls, dams, caves and the living culture of the Basotho.</p>
+</div>
+<div class="col-6 col-lg-2">
+<h3 class="h6">Explore</h3>
+<ul>
+<li><a href="destinations.html">Destinations</a></li>
+<li><a href="accommodation.html">Accommodation</a></li>
+<li><a href="activities.html">Activities</a></li>
+<li><a href="gallery.html">Gallery</a></li>
+</ul>
+</div>
+<div class="col-6 col-lg-3">
+<h3 class="h6">Plan</h3>
+<ul>
+<li><a href="contact.html#booking">Book a trip</a></li>
+<li><a href="contact.html#contact">Contact us</a></li>
+<li><a href="contact.html#account">Traveller account</a></li>
+<li><a href="index.html#faq">Travel FAQ</a></li>
+</ul>
+</div>
+<div class="col-lg-3">
+<h3 class="h6">Get in touch</h3>
+<address class="mb-0">Maseru, Lesotho<br><a href="mailto:hello@lesotho-tourism.example">hello@lesotho-tourism.example</a><br><a href="tel:+26622000000">+266 2200 0000</a></address>
+</div>
+</div>
+<hr class="border-light opacity-25 my-4">
+<p class="small mb-0">&copy; <span data-year>2026</span> Lesotho Tourism student project. Web Design 1 (DIWD2110), Limkokwing University of Creative Technology.</p>
+</div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/data-fallback.js"></script>
+<script src="js/main.js"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const searchInput = document.getElementById("activitySearch");
+    const filterButtons = Array.from(document.querySelectorAll(".activity-filter"));
+    const activityItems = Array.from(document.querySelectorAll(".activity-item"));
+    const activityCount = document.getElementById("activityCount");
+    const activityEmpty = document.getElementById("activityEmpty");
+    const clearButton = document.getElementById("clearActivityFilters");
+
+    let selectedCategory = "all";
+
+    function filterActivities() {
+        const searchTerm = searchInput.value.trim().toLowerCase();
+        let visibleCount = 0;
+
+        activityItems.forEach(function (item) {
+            const category = item.dataset.activity;
+            const text = item.textContent.toLowerCase();
+            const matchesCategory = selectedCategory === "all" || category === selectedCategory;
+            const matchesSearch = text.includes(searchTerm);
+            const visible = matchesCategory && matchesSearch;
+
+            item.classList.toggle("d-none", !visible);
+
+            if (visible) {
+                visibleCount++;
+            }
+        });
+
+        activityCount.textContent = "Showing " + visibleCount + (visibleCount === 1 ? " activity" : " activities");
+        activityEmpty.hidden = visibleCount !== 0;
+    }
+
+    filterButtons.forEach(function (button) {
+        button.addEventListener("click", function () {
+            selectedCategory = button.dataset.filter;
+
+            filterButtons.forEach(function (filterButton) {
+                const active = filterButton === button;
+                filterButton.classList.toggle("active", active);
+                filterButton.setAttribute("aria-pressed", String(active));
+            });
+
+            filterActivities();
+        });
+    });
+
+    searchInput.addEventListener("input", filterActivities);
+
+    clearButton.addEventListener("click", function () {
+        searchInput.value = "";
+        selectedCategory = "all";
+
+        filterButtons.forEach(function (button) {
+            const active = button.dataset.filter === "all";
+            button.classList.toggle("active", active);
+            button.setAttribute("aria-pressed", String(active));
+        });
+
+        filterActivities();
+        searchInput.focus();
+    });
+
+    filterActivities();
+});
+</script>
+</body>
+</html>

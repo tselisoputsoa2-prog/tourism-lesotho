@@ -1,0 +1,73 @@
+IMAGE-CHECKLIST.txt
+Put every file below inside your images/ folder. On GitHub the capital letters, hyphens and underscores must match exactly.
+
+FILES USED BY THE PAGES
+
+Maletsunyanefalls.jpg
+Sehlabathebe-national-park.jpg
+Sehlabathebe_National_Park.jpg
+afriski-mountain-resort.jpg
+berea.jpg
+bokong.jpg
+favicon.svg
+flag.jpg
+ha-kome.jpg
+katse_Dam.jpg
+leribe.jpg
+liphofung.jpg
+logo.svg
+malealea.jpg
+maseru-city-centre.jpg
+maseru.jpg
+metolong-dam.jpg
+mohale-dam.jpg
+morija-museum.jpg
+pony-trekking.jpg
+qachas-nek.jpg
+quthing.jpg
+ribaneng.jpg
+sani-pass.jpg
+semonkong.jpg
+stay-camp.jpg
+stay-chalet.jpg
+stay-hotel.jpg
+stay-lodge.jpg
+stay-rondavel.jpg
+stay-village.jpg
+thaba-bosiu.jpg
+thabana-ntlenyana.jpg
+tsehlanyane.jpg
+
+FILES NOT YET CHECKED
+- flag.jpg is used by css/style.css for the banner backgrounds.
+- Sehlabathebe-national-park.jpg (hyphens) is used by the summer slide on index.html. Make sure this exact file exists.
+
+WHICH PHOTO EACH DESTINATION CARD USES (data/destinations.json and js/data-fallback.js)
+
+ 1. Maletsunyane Falls               -> Maletsunyanefalls.jpg
+ 2. Thabana Ntlenyana                -> thabana-ntlenyana.jpg
+ 3. Tsehlanyane National Park        -> tsehlanyane.jpg
+ 4. Bokong Nature Reserve            -> bokong.jpg
+ 5. Sehlabathebe National Park       -> Sehlabathebe_National_Park.jpg
+ 6. Gates of Paradise Pass           -> qachas-nek.jpg
+ 7. Katse Dam                        -> katse_Dam.jpg
+ 8. Mohale Dam                       -> mohale-dam.jpg
+ 9. Afriski Mountain Resort          -> afriski-mountain-resort.jpg
+10. Sani Top                         -> sani-pass.jpg
+11. Thaba Bosiu Cultural Village     -> thaba-bosiu.jpg
+12. Morija Museum and Archives       -> morija-museum.jpg
+13. Ha Kome Cave Houses              -> ha-kome.jpg
+14. Liphofung Cave                   -> liphofung.jpg
+15. Basotho Hat Building             -> maseru-city-centre.jpg
+16. Quthing Dinosaur Footprints      -> quthing.jpg
+17. Ribaneng Falls                   -> ribaneng.jpg
+18. Bokong Highlands                 -> leribe.jpg
+19. Mafika-Lisiu Pass                -> semonkong.jpg
+20. Malealea                         -> malealea.jpg
+21. Roma                             -> maseru.jpg
+22. Morija                           -> morija-museum.jpg
+23. Matsieng Royal Palace            -> berea.jpg
+24. Lake Letsie                      -> quthing.jpg
+25. Metolong Dam                     -> metolong-dam.jpg
+
+Several destinations share a photo because the gallery has 24 pictures for 25 places. To give a place its own photo, change its 'image' value in BOTH data/destinations.json and js/data-fallback.js.

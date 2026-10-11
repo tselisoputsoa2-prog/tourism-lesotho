@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contact & Booking | Lesotho Tourism</title>
+<meta name="description" content="Contact Lesotho Tourism, request a booking with an instant cost estimate, or create a traveller account.">
+<meta name="theme-color" content="#0a1650">
+<link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+<header>
+<nav class="navbar navbar-expand-xl lt-nav" aria-label="Main navigation">
+  <div class="container">
+    <a class="navbar-brand" href="index.html"><img src="images/logo.svg" alt="" width="38" height="38"><span>Lesotho Tourism</span></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainMenu" aria-controls="mainMenu" aria-expanded="false" aria-label="Open or close the menu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="mainMenu">
+      <ul class="navbar-nav me-auto mb-2 mb-xl-0 ms-xl-3">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Destinations</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="destinations.html">All 25 places</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="destinations.html?cat=Mountains%20%26%20Nature">Mountains &amp; Nature</a></li>
+            <li><a class="dropdown-item" href="destinations.html?cat=Dams%20%26%20Highlands">Dams &amp; Highlands</a></li>
+            <li><a class="dropdown-item" href="destinations.html?cat=History%20%26%20Culture">History &amp; Culture</a></li>
+            <li><a class="dropdown-item" href="destinations.html?cat=More%20to%20explore">More to explore</a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="accommodation.html">Accommodation</a></li>
+        <li class="nav-item"><a class="nav-link" href="activities.html">Activities</a></li>
+        <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+        <li class="nav-item"><a class="nav-link active" href="contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-tools">
+        <a class="icon-btn text-decoration-none" href="destinations.html#saved" aria-label="Saved places"><span aria-hidden="true">♥</span> <span data-fav-count>0</span></a>
+        <a class="icon-btn text-decoration-none" href="contact.html#account" data-welcome>Sign up</a>
+        <button class="icon-btn" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch between light and dark mode"><span class="ico" aria-hidden="true">☾</span> <span class="label">Dark mode</span></button>
+      </div>
+    </div>
+  </div>
+</nav>
+<div class="flag-stripe" role="presentation"></div>
+</header>
+<section class="page-hero" aria-labelledby="pageTitle">
+  <div class="container">
+    <nav aria-label="Breadcrumb"><ol class="breadcrumb breadcrumb-lt mb-2">
+      <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Contact and booking</li>
+    </ol></nav>
+    <h1 id="pageTitle">Contact and booking</h1>
+    <p class="lead mb-0">Ask a question, request a trip with a live price estimate, or create a traveller account.</p>
+  </div>
+</section>
+
+<main id="main">
+<div class="container pt-4"><div id="savedUser"></div></div>
+
+<section class="section pt-4" id="booking" aria-labelledby="bkTitle">
+  <div class="container">
+    <div class="section-head"><h2 id="bkTitle">Request a booking</h2><p class="mb-0 text-muted-lt">The estimate updates as you change the form. It is a guide, not a final price.</p></div>
+    <div class="row g-4 align-items-start">
+      <div class="col-lg-7">
+        <form id="bookingForm" class="form-panel" novalidate aria-describedby="bkTitle">
+          <div class="form-status" role="status" aria-live="polite"></div>
+          <div class="row g-3">
+            <div class="col-md-6"><label class="form-label" for="bkName">Full name</label>
+              <input id="bkName" name="name" type="text" class="form-control" required minlength="2" maxlength="60" autocomplete="name" data-rule="name" placeholder="Palesa Mokoena"></div>
+            <div class="col-md-6"><label class="form-label" for="bkEmail">Email</label>
+              <input id="bkEmail" name="email" type="email" class="form-control" required autocomplete="email" data-rule="email" placeholder="you@example.com"></div>
+            <div class="col-md-6"><label class="form-label" for="bkPhone">Phone</label>
+              <input id="bkPhone" name="phone" type="tel" class="form-control" required autocomplete="tel" data-rule="phone" placeholder="+266 5812 3456"></div>
+            <div class="col-md-6"><label class="form-label" for="bkDestination">Destination</label>
+              <select id="bkDestination" name="destination" class="form-select" required data-rule="select"><option value="">Loading...</option></select></div>
+            <div class="col-md-4"><label class="form-label" for="bkDate">Arrival date</label>
+              <input id="bkDate" name="date" type="date" class="form-control" required data-rule="date"></div>
+            <div class="col-md-4"><label class="form-label" for="bkNights">Nights</label>
+              <input id="bkNights" name="nights" type="number" class="form-control" min="1" max="14" value="2" required data-rule="number"></div>
+            <div class="col-md-4"><label class="form-label" for="bkGuests">Guests</label>
+              <input id="bkGuests" name="guests" type="number" class="form-control" min="1" max="20" value="2" required data-rule="number"></div>
+            <div class="col-12">
+              <fieldset><legend class="form-label fs-6">Comfort level (per person, per night)</legend>
+                <div class="d-flex flex-wrap gap-3">
+                  <div class="form-check"><input class="form-check-input" type="radio" name="package" id="pkg1" data-rate="350"><label class="form-check-label" for="pkg1">Budget, M350</label></div>
+                  <div class="form-check"><input class="form-check-input" type="radio" name="package" id="pkg2" data-rate="850" checked><label class="form-check-label" for="pkg2">Comfort, M850</label></div>
+                  <div class="form-check"><input class="form-check-input" type="radio" name="package" id="pkg3" data-rate="1800"><label class="form-check-label" for="pkg3">Luxury, M1,800</label></div>
+                </div></fieldset></div>
+            <div class="col-12">
+              <fieldset><legend class="form-label fs-6">Extras</legend>
+                <div class="row g-2">
+                  <div class="col-sm-6"><div class="form-check"><input class="form-check-input" type="checkbox" name="extras" id="ex1" data-price="400" data-per="day" data-label="Local guide (per day)"><label class="form-check-label" for="ex1">Local guide, M400 a day</label></div></div>
+                  <div class="col-sm-6"><div class="form-check"><input class="form-check-input" type="checkbox" name="extras" id="ex2" data-price="350" data-per="person" data-label="Pony trek (per person)"><label class="form-check-label" for="ex2">Pony trek, M350 each</label></div></div>
+                  <div class="col-sm-6"><div class="form-check"><input class="form-check-input" type="checkbox" name="extras" id="ex3" data-price="600" data-per="trip" data-label="Transfer from Maseru"><label class="form-check-label" for="ex3">Transfer from Maseru, M600</label></div></div>
+                  <div class="col-sm-6"><div class="form-check"><input class="form-check-input" type="checkbox" name="extras" id="ex4" data-price="180" data-per="person" data-label="Traditional meal (per person)"><label class="form-check-label" for="ex4">Traditional meal, M180 each</label></div></div>
+                </div></fieldset></div>
+            <div class="col-12"><label class="form-label" for="bkNotes">Anything else we should know? <span class="text-muted-lt fw-normal">(optional)</span></label>
+              <textarea id="bkNotes" name="notes" class="form-control" rows="3" maxlength="400" placeholder="Diet, mobility, special occasions"></textarea></div>
+          </div>
+          <button type="submit" class="btn btn-green btn-lg mt-4">Send booking request</button>
+        </form>
+      </div>
+      <div class="col-lg-5">
+        <div class="calc-result mb-4" aria-live="polite" style="position:sticky;top:90px">
+          <h3 class="h5 text-white">Estimated cost</h3>
+          <ul class="list-unstyled mb-3" id="calcLines"></ul>
+          <div class="d-flex justify-content-between align-items-end"><span>Total</span><span class="total" id="calcTotal">M0</span></div>
+          <p class="small mb-3 opacity-75" id="calcPer"></p>
+          <h3 class="h6 text-white mt-4">My booking requests</h3>
+          <ul class="list-unstyled small mb-0" id="savedBookings"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt" id="contact" aria-labelledby="ctTitle">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-lg-7">
+        <h2 id="ctTitle" class="mb-3">Send us a message</h2>
+        <form id="contactForm" class="form-panel" novalidate>
+          <div class="form-status" role="status" aria-live="polite"></div>
+          <div class="row g-3">
+            <div class="col-md-6"><label class="form-label" for="ctName">Name</label><input id="ctName" name="name" type="text" class="form-control" required minlength="2" autocomplete="name" data-rule="name"></div>
+            <div class="col-md-6"><label class="form-label" for="ctEmail">Email</label><input id="ctEmail" name="email" type="email" class="form-control" required autocomplete="email" data-rule="email"></div>
+            <div class="col-12"><label class="form-label" for="ctSubject">Subject</label><input id="ctSubject" name="subject" type="text" class="form-control" required minlength="3" data-rule="subject"></div>
+            <div class="col-12"><label class="form-label" for="ctMessage">Message</label><textarea id="ctMessage" name="message" class="form-control" rows="5" required minlength="10" maxlength="1000" data-rule="message"></textarea></div>
+          </div>
+          <button type="submit" class="btn btn-brand mt-4">Send message</button>
+        </form>
+      </div>
+      <aside class="col-lg-5" aria-labelledby="infoTitle">
+        <div class="sidebar-box h-100">
+          <h2 class="h4" id="infoTitle">Visit or call</h2>
+          <address>Lesotho Tourism Information Desk<br>Kingsway, Maseru, Lesotho<br>
+            <a href="tel:+26622000000">+266 2200 0000</a><br><a href="mailto:hello@lesotho-tourism.example">hello@lesotho-tourism.example</a></address>
+          <h3 class="h6 mt-4">Opening hours</h3>
+          <table class="table table-sm table-lt mb-3"><caption class="visually-hidden">Opening hours</caption>
+            <tbody><tr><th scope="row">Mon to Fri</th><td>08:00 to 17:00</td></tr><tr><th scope="row">Saturday</th><td>09:00 to 13:00</td></tr><tr><th scope="row">Sunday</th><td>Closed</td></tr></tbody></table>
+          <div class="alert alert-lt-info mb-0" role="note">Emergency in the mountains? Call the local police or your host first, then tell us.</div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="account" aria-labelledby="acTitle">
+  <div class="container">
+    <div class="row g-4 justify-content-center">
+      <div class="col-lg-7">
+        <h2 id="acTitle">Create a traveller account</h2>
+        <p>Save your name on this device and get a personal greeting on every page. Nothing is sent to a server in this demo.</p>
+        <form id="signupForm" class="form-panel" novalidate>
+          <div class="form-status" role="status" aria-live="polite"></div>
+          <div class="row g-3">
+            <div class="col-md-6"><label class="form-label" for="suName">Full name</label><input id="suName" name="fullname" type="text" class="form-control" required minlength="2" autocomplete="name" data-rule="name"></div>
+            <div class="col-md-6"><label class="form-label" for="suUser">Username</label><input id="suUser" name="username" type="text" class="form-control" required minlength="3" maxlength="16" autocomplete="username" data-rule="username"></div>
+            <div class="col-md-6"><label class="form-label" for="suEmail">Email</label><input id="suEmail" name="email" type="email" class="form-control" required autocomplete="email" data-rule="email"></div>
+            <div class="col-md-6"><label class="form-label" for="suPhone">Phone <span class="text-muted-lt fw-normal">(optional)</span></label><input id="suPhone" name="phone" type="tel" class="form-control" autocomplete="tel" data-rule="phone"></div>
+            <div class="col-md-6"><label class="form-label" for="suGender">Gender <span class="text-muted-lt fw-normal">(optional)</span></label>
+              <select id="suGender" name="gender" class="form-select"><option value="">Prefer not to say</option><option>Female</option><option>Male</option><option>Other</option></select></div>
+            <div class="col-md-6"><label class="form-label" for="suPassword">Password</label><input id="suPassword" name="password" type="password" class="form-control" required minlength="8" autocomplete="new-password" data-rule="password" aria-describedby="pwHelp">
+              <div class="strength mt-2" id="pwBar" aria-hidden="true"><span></span></div><div class="form-text" id="pwHelp">8+ characters with a capital, a small letter and a number.</div></div>
+            <div class="col-md-6"><label class="form-label" for="suConfirm">Confirm password</label><input id="suConfirm" name="confirm" type="password" class="form-control" required autocomplete="new-password" data-match="#suPassword"></div>
+            <div class="col-12"><div class="form-check"><input class="form-check-input" type="checkbox" id="suTerms" required><label class="form-check-label" for="suTerms">I agree to the <a href="#" data-bs-toggle="modal" data-bs-target="#termsModal">terms and privacy note</a></label></div></div>
+          </div>
+          <button type="submit" class="btn btn-green mt-4">Create account</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<div class="modal fade" id="termsModal" tabindex="-1" aria-labelledby="termsTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable"><div class="modal-content">
+    <div class="modal-header"><h2 class="modal-title h5" id="termsTitle">Terms and privacy note</h2><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div>
+    <div class="modal-body"><p>This is a student demonstration website. Your name, saved places and booking requests are stored only in your own browser (localStorage). They are not sent to any server.</p><p class="mb-0">You can remove them at any time by cancelling a booking, removing a saved place or signing out.</p></div>
+    <div class="modal-footer"><button type="button" class="btn btn-brand" data-bs-dismiss="modal">Got it</button></div>
+  </div></div>
+</div>
+
+<button type="button" class="to-top" id="toTop" aria-label="Back to top">↑</button>
+<footer class="lt-footer">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-lg-4">
+        <h2 class="h5">Lesotho Tourism</h2>
+        <p>Your guide to the Kingdom in the Sky: mountains, waterfalls, dams, caves and the living culture of the Basotho.</p>
+      </div>
+      <div class="col-6 col-lg-2">
+        <h3 class="h6">Explore</h3>
+        <ul><li><a href="destinations.html">Destinations</a></li><li><a href="accommodation.html">Accommodation</a></li><li><a href="activities.html">Activities</a></li><li><a href="gallery.html">Gallery</a></li></ul>
+      </div>
+      <div class="col-6 col-lg-3">
+        <h3 class="h6">Plan</h3>
+        <ul><li><a href="contact.html#booking">Book a trip</a></li><li><a href="contact.html#contact">Contact us</a></li><li><a href="contact.html#account">Traveller account</a></li><li><a href="index.html#faq">Travel FAQ</a></li></ul>
+      </div>
+      <div class="col-lg-3">
+        <h3 class="h6">Get in touch</h3>
+        <address class="mb-0">Maseru, Lesotho<br><a href="mailto:hello@lesotho-tourism.example">hello@lesotho-tourism.example</a><br><a href="tel:+26622000000">+266 2200 0000</a></address>
+      </div>
+    </div>
+    <hr class="border-light opacity-25 my-4">
+    <p class="small mb-0">&copy; <span data-year>2026</span> Lesotho Tourism student project. Web Design 1 (DIWD2110), Limkokwing University of Creative Technology. Pictures are original illustrations.</p>
+  </div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/data-fallback.js"></script>
+<script src="js/main.js"></script>
+<script src="js/forms.js"></script>
+</body>
+</html>
