@@ -1,352 +1,295 @@
-<!DOCTYPE html>
-<html lang="en" data-bs-theme="light">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Gallery | Lesotho Tourism</title>
-<meta name="description" content="Explore photographs of Lesotho's mountains, waterfalls, dams, heritage sites and culture.">
-<meta name="theme-color" content="#0a1650">
-<link rel="icon" href="images/favicon.svg" type="image/svg+xml">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-<link href="css/style.css" rel="stylesheet">
 
-<style>
-.gallery-section {
-    padding: 55px 0 70px;
-}
-.photo-grid {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 28px 20px;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
-.photo {
-    margin: 0;
-}
-.photo img {
-    display: block;
-    width: 100%;
-    aspect-ratio: 4 / 3;
-    object-fit: cover;
-    border-radius: 12px;
-    background: #e2e8f0;
-}
-.photo figcaption {
-    margin-top: 10px;
-    font-weight: 700;
-    font-size: 1rem;
-    line-height: 1.3;
-    color: #0a1650;
-}
-[data-bs-theme="dark"] .photo figcaption {
-    color: #f1f5f9;
-}
-@media (max-width: 1199px) {
-    .photo-grid {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-}
-@media (max-width: 767px) {
-    .photo-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 22px 14px;
-    }
-}
-@media (max-width: 459px) {
-    .photo-grid {
-        grid-template-columns: 1fr;
-    }
-}
-</style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery | Lesotho Tourism</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        header {
+            background-color: #0a1650;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        nav {
+            background-color: #222;
+            text-align: center;
+            padding: 12px;
+            border: none;
+            box-shadow: none;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 10px;
+        }
+
+        nav a:hover {
+            color: orange;
+        }
+
+        .intro {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .card {
+            background-color: white;
+            width: 280px;
+            padding: 15px;
+            text-align: center;
+            border-radius: 8px;
+        }
+
+        .card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+
+        .card h3 {
+            color: #0a1650;
+        }
+
+        footer {
+            background-color: #0a1650;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            margin-top: 20px;
+        }
+
+        footer a {
+            color: white;
+        }
+    </style>
 </head>
 
 <body>
-<a class="skip-link" href="#main">Skip to main content</a>
 
-<header>
-<nav class="navbar navbar-expand-xl lt-nav" aria-label="Main navigation">
-<div class="container">
-<a class="navbar-brand" href="index.html">
-<img src="images/logo.svg" alt="" width="38" height="38">
-<span>Lesotho Tourism</span>
-</a>
-<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainMenu" aria-controls="mainMenu" aria-expanded="false" aria-label="Open or close the menu">
-<span class="navbar-toggler-icon"></span>
-</button>
-<div class="collapse navbar-collapse" id="mainMenu">
-<ul class="navbar-nav me-auto mb-2 mb-xl-0 ms-xl-3">
-<li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-<li class="nav-item dropdown">
-<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Destinations</a>
-<ul class="dropdown-menu">
-<li><a class="dropdown-item" href="destinations.html">All 25 places</a></li>
-<li><hr class="dropdown-divider"></li>
-<li><a class="dropdown-item" href="destinations.html?cat=Mountains%20%26%20Nature">Mountains &amp; Nature</a></li>
-<li><a class="dropdown-item" href="destinations.html?cat=Dams%20%26%20Highlands">Dams &amp; Highlands</a></li>
-<li><a class="dropdown-item" href="destinations.html?cat=History%20%26%20Culture">History &amp; Culture</a></li>
-<li><a class="dropdown-item" href="destinations.html?cat=More%20to%20explore">More to explore</a></li>
-</ul>
-</li>
-<li class="nav-item"><a class="nav-link" href="accommodation.html">Accommodation</a></li>
-<li class="nav-item"><a class="nav-link" href="activities.html">Activities</a></li>
-<li class="nav-item"><a class="nav-link active" href="gallery.html" aria-current="page">Gallery</a></li>
-<li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-</ul>
-<div class="nav-tools">
+    <header>
+        <h1>Lesotho Tourism</h1>
+        <p>Your guide to the Kingdom in the Sky</p>
+    </header>
 
-<a class="icon-btn text-decoration-none" href="contact.html#account" data-welcome>Sign up</a>
-<button class="icon-btn" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch between light and dark mode"><span class="ico" aria-hidden="true">☾</span> <span class="label">Dark mode</span></button>
-</div>
-</div>
-</div>
-</nav>
-<div class="flag-stripe" role="presentation"></div>
-</header>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="destinations.html">Destinations</a>
+        <a href="accommodation.html">Accommodation</a>
+        <a href="activities.html">Activities</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="contact.html">Contact</a>
+    </nav>
 
-<section class="page-hero" aria-labelledby="pageTitle">
-<div class="container">
-<nav aria-label="Breadcrumb">
-<ol class="breadcrumb breadcrumb-lt mb-2">
-<li class="breadcrumb-item"><a href="index.html">Home</a></li>
-<li class="breadcrumb-item active" aria-current="page">Gallery</li>
-</ol>
-</nav>
-<h1 id="pageTitle">Photo gallery</h1>
-<p class="lead mb-0">Explore the beauty of Lesotho through photographs.</p>
-</div>
-</section>
+    <section class="intro">
+        <h2>Photo Gallery</h2>
+        <p>Explore the beauty of Lesotho through photographs.</p>
+    </section>
 
-<main id="main">
-<section class="gallery-section" aria-label="Photographs of Lesotho">
-<div class="container">
+    <section class="gallery">
 
-<ul class="photo-grid">
+        <div class="card">
+            <img src="images/maletsunyanefalls.jpg" alt="Maletsunyane Falls surrounded by rugged mountain scenery">
+            <h3>Maletsunyane Falls</h3>
+            <p>Discover a beautiful waterfall surrounded by rugged mountains.</p>
+        </div>
 
-<li>
-<figure class="photo">
-<img src="images/maletsunyanefalls.jpg" alt="Maletsunyane Falls surrounded by rugged mountain scenery" loading="lazy" width="800" height="600">
-<figcaption>Maletsunyane Falls</figcaption>
-</figure>
-</li>
+        <div class="card">
+            <img src="images/katse_dam.jpg" alt="Katse Dam and its reservoir among the highlands">
+            <h3>Katse Dam</h3>
+            <p>Explore the impressive dam and its highland reservoir.</p>
+        </div>
 
-<li>
-<figure class="photo">
-<img src="images/katse_dam.jpg" alt="Katse Dam and its reservoir among the highlands" loading="lazy" width="800" height="600">
-<figcaption>Katse Dam</figcaption>
-</figure>
-</li>
+        <div class="card">
+            <img src="images/afriski-mountain-resort.jpg" alt="Afriski Mountain Resort">
+            <h3>Afriski Mountain Resort</h3>
+            <p>Experience the highlands and their snowy winter scenery.</p>
+        </div>
 
-<li>
-<figure class="photo">
-<img src="images/afriski-mountain-resort.jpg" alt="Afriski Mountain Resort surrounded by high mountain slopes" loading="lazy" width="800" height="600">
-<figcaption>Afriski Mountain Resort</figcaption>
-</figure>
-</li>
+        <div class="card">
+            <img src="images/tsehlanyane.jpg" alt="Tsehlanyane National Park">
+            <h3>Tsehlanyane National Park</h3>
+            <p>Enjoy green landscapes and beautiful mountain scenery.</p>
+        </div>
 
-<li>
-<figure class="photo">
-<img src="images/tsehlanyane.jpg" alt="Mountain scenery and green landscapes at Tsehlanyane National Park" loading="lazy" width="800" height="600">
-<figcaption>Tsehlanyane National Park</figcaption>
-</figure>
-</li>
+        <div class="card">
+            <img src="images/sehlabathebe_national_park.jpg" alt="Sehlabathebe National Park">
+            <h3>Sehlabathebe National Park</h3>
+            <p>Discover rock formations and open highland landscapes.</p>
+        </div>
 
-<li>
-<figure class="photo">
-<img src="images/sehlabathebe_national_park.jpg" alt="Rock formations and open highland landscapes at Sehlabathebe" loading="lazy" width="800" height="600">
-<figcaption>Sehlabathebe National Park</figcaption>
-</figure>
-</li>
+        <div class="card">
+            <img src="images/ribaneng.jpg" alt="Ribaneng Falls">
+            <h3>Ribaneng Falls</h3>
+            <p>Admire a waterfall flowing through a rocky landscape.</p>
+        </div>
 
-<li>
-<figure class="photo">
-<img src="images/ribaneng.jpg" alt="Waterfall flowing down a rocky mountain landscape" loading="lazy" width="800" height="600">
-<figcaption>Ribaneng Falls</figcaption>
-</figure>
-</li>
+        <div class="card">
+            <img src="images/bokong.jpg" alt="Bokong Nature Reserve">
+            <h3>Bokong Nature Reserve</h3>
+            <p>Explore the open mountain plateau and surrounding scenery.</p>
+        </div>
 
-<li>
-<figure class="photo">
-<img src="images/bokong.jpg" alt="Open mountain plateau at Bokong Nature Reserve" loading="lazy" width="800" height="600">
-<figcaption>Bokong Nature Reserve</figcaption>
-</figure>
-</li>
+        <div class="card">
+            <img src="images/thaba-bosiu.jpg" alt="Historic sandstone plateau at Thaba Bosiu">
+            <h3>Thaba Bosiu</h3>
+            <p>Discover an important historic site in Basotho heritage.</p>
+        </div>
 
-<li>
-<figure class="photo">
-<img src="images/thaba-bosiu.jpg" alt="Historic sandstone plateau at Thaba Bosiu" loading="lazy" width="800" height="600">
-<figcaption>Thaba Bosiu</figcaption>
-</figure>
-</li>
+        <div class="card">
+            <img src="images/ha-kome.jpg" alt="Traditional homes at Ha Kome Caves">
+            <h3>Ha Kome Caves</h3>
+            <p>See traditional homes built into the rock.</p>
+        </div>
 
-<li>
-<figure class="photo">
-<img src="images/ha-kome.jpg" alt="Traditional homes built into the rock at Ha Kome Caves" loading="lazy" width="800" height="600">
-<figcaption>Ha Kome Caves</figcaption>
-</figure>
-</li>
+        <div class="card">
+            <img src="images/morija-museum.jpg" alt="Morija Museum">
+            <h3>Morija Museum</h3>
+            <p>Learn about Basotho history and cultural heritage.</p>
+        </div>
 
-<li>
-<figure class="photo">
-<img src="images/morija-museum.jpg" alt="Museum and cultural heritage setting in Morija" loading="lazy" width="800" height="600">
-<figcaption>Morija Museum</figcaption>
-</figure>
-</li>
+        <div class="card">
+            <img src="images/malealea.jpg" alt="Mountain scenery around Malealea">
+            <h3>Malealea</h3>
+            <p>Enjoy rural scenery and the surrounding mountains.</p>
+        </div>
 
-<li>
-<figure class="photo">
-<img src="images/malealea.jpg" alt="Rural mountain scenery around Malealea" loading="lazy" width="800" height="600">
-<figcaption>Malealea</figcaption>
-</figure>
-</li>
+        <div class="card">
+            <img src="images/sani-pass.jpg" alt="Winding mountain road at Sani Pass">
+            <h3>Sani Pass</h3>
+            <p>Explore a winding mountain route through the highlands.</p>
+        </div>
 
-<li>
-<figure class="photo">
-<img src="images/sani-pass.jpg" alt="Winding mountain road through the highlands at Sani Pass" loading="lazy" width="800" height="600">
-<figcaption>Sani Pass</figcaption>
-</figure>
-</li>
+        <div class="card">
+            <img src="images/thabana-ntlenyana.jpg" alt="High mountain peaks">
+            <h3>Thabana Ntlenyana</h3>
+            <p>Admire the high peaks and open mountain scenery.</p>
+        </div>
 
-<li>
-<figure class="photo">
-<img src="images/thabana-ntlenyana.jpg" alt="High mountain peaks and open highland scenery" loading="lazy" width="800" height="600">
-<figcaption>Thabana Ntlenyana</figcaption>
-</figure>
-</li>
+        <div class="card">
+            <img src="images/liphofung.jpg" alt="Liphofung Cave">
+            <h3>Liphofung Cave</h3>
+            <p>Discover a historic rock shelter and sandstone formations.</p>
+        </div>
 
-<li>
-<figure class="photo">
-<img src="images/liphofung.jpg" alt="Rock shelter and sandstone formations at Liphofung" loading="lazy" width="800" height="600">
-<figcaption>Liphofung Cave</figcaption>
-</figure>
-</li>
+        <div class="card">
+            <img src="images/leribe.jpg" alt="Leribe Highlands">
+            <h3>Leribe Highlands</h3>
+            <p>Enjoy the green hills and countryside of Leribe.</p>
+        </div>
 
-<li>
-<figure class="photo">
-<img src="images/leribe.jpg" alt="Green hills and mountain scenery in the Leribe region" loading="lazy" width="800" height="600">
-<figcaption>Leribe Highlands</figcaption>
-</figure>
-</li>
+        <div class="card">
+            <img src="images/mohale-dam.jpg" alt="Mohale Dam reservoir surrounded by mountains">
+            <h3>Mohale Dam</h3>
+            <p>View the reservoir and its rugged mountain surroundings.</p>
+        </div>
 
-<li>
-<figure class="photo">
-<img src="images/mohale-dam.jpg" alt="Mohale Dam reservoir surrounded by rugged mountains" loading="lazy" width="800" height="600">
-<figcaption>Mohale Dam</figcaption>
-</figure>
-</li>
+        <div class="card">
+            <img src="images/metolong-dam.jpg" alt="Metolong Dam and surrounding hills">
+            <h3>Metolong Dam</h3>
+            <p>Discover a reservoir surrounded by beautiful hills.</p>
+        </div>
 
-<li>
-<figure class="photo">
-<img src="images/metolong-dam.jpg" alt="Water reservoir and surrounding hills at Metolong Dam" loading="lazy" width="800" height="600">
-<figcaption>Metolong Dam</figcaption>
-</figure>
-</li>
+        <div class="card">
+            <img src="images/pony-trekking.jpg" alt="Basotho ponies on a highland trail">
+            <h3>Basotho Pony Trekking</h3>
+            <p>Experience the traditional ponies of the Lesotho highlands.</p>
+        </div>
 
-<li>
-<figure class="photo">
-<img src="images/pony-trekking.jpg" alt="Basotho ponies on a highland trail" loading="lazy" width="800" height="600">
-<figcaption>Basotho Pony Trekking</figcaption>
-</figure>
-</li>
+        <div class="card">
+            <img src="images/maseru.jpg" alt="Maseru city and surrounding hills">
+            <h3>Maseru City</h3>
+            <p>Explore the capital city of Lesotho.</p>
+        </div>
 
-<li>
-<figure class="photo">
-<img src="images/maseru.jpg" alt="City buildings and surrounding hills in Maseru" loading="lazy" width="800" height="600">
-<figcaption>Maseru City</figcaption>
-</figure>
-</li>
+        <div class="card">
+            <img src="images/maseru-city-centre.jpg" alt="Streets and buildings in central Maseru">
+            <h3>Maseru City Centre</h3>
+            <p>Discover the streets and buildings of central Maseru.</p>
+        </div>
 
-<li>
-<figure class="photo">
-<img src="images/maseru-city-centre.jpg" alt="Streets and buildings in central Maseru" loading="lazy" width="800" height="600">
-<figcaption>Maseru City Centre</figcaption>
-</figure>
-</li>
+        <div class="card">
+            <img src="images/qachas-nek.jpg" alt="Mountain landscape around Qacha's Nek">
+            <h3>Qacha's Nek</h3>
+            <p>Enjoy the mountain scenery around Qacha's Nek.</p>
+        </div>
 
-<li>
-<figure class="photo">
-<img src="images/qachas-nek.jpg" alt="Mountain landscape around Qacha's Nek" loading="lazy" width="800" height="600">
-<figcaption>Qacha's Nek</figcaption>
-</figure>
-</li>
+        <div class="card">
+            <img src="images/quthing.jpg" alt="Town and countryside scenery in Quthing">
+            <h3>Quthing</h3>
+            <p>Explore the town and surrounding countryside.</p>
+        </div>
 
-<li>
-<figure class="photo">
-<img src="images/quthing.jpg" alt="Town and countryside scenery in Quthing" loading="lazy" width="800" height="600">
-<figcaption>Quthing</figcaption>
-</figure>
-</li>
+        <div class="card">
+            <img src="images/berea.jpg" alt="Countryside and hills in Berea District">
+            <h3>Berea Countryside</h3>
+            <p>Admire the rolling hills and peaceful countryside.</p>
+        </div>
 
-<li>
-<figure class="photo">
-<img src="images/berea.jpg" alt="Countryside and hills in Berea District" loading="lazy" width="800" height="600">
-<figcaption>Berea Countryside</figcaption>
-</figure>
-</li>
+        <div class="card">
+            <img src="images/semonkong.jpg" alt="Highland landscape around Semonkong">
+            <h3>Semonkong Highlands</h3>
+            <p>Discover the scenic mountain landscape around Semonkong.</p>
+        </div>
 
-<li>
-<figure class="photo">
-<img src="images/semonkong.jpg" alt="Highland landscape surrounding Semonkong" loading="lazy" width="800" height="600">
-<figcaption>Semonkong Highlands</figcaption>
-</figure>
-</li>
+        <div class="card">
+            <img src="images/roma.jpg" alt="Roma valley and surrounding cliffs">
+            <h3>Roma</h3>
+            <p>Enjoy the valley scenery and surrounding cliffs.</p>
+        </div>
 
-<li>
-<figure class="photo">
-<img src="images/roma.jpg" alt="Roma valley and surrounding cliffs" loading="lazy" width="800" height="600">
-<figcaption>Roma</figcaption>
-</figure>
-</li>
+    </section>
 
-</ul>
+    <footer>
+        <h3>Lesotho Tourism</h3>
+        <p>Your guide to the Kingdom in the Sky: mountains, waterfalls, dams, caves and Basotho culture.</p>
 
-</div>
-</section>
-</main>
+        <p>
+            <strong>Explore:</strong>
+            <a href="destinations.html">Destinations</a> |
+            <a href="accommodation.html">Accommodation</a> |
+            <a href="activities.html">Activities</a> |
+            <a href="gallery.html">Gallery</a>
+        </p>
 
-<button type="button" class="to-top" id="toTop" aria-label="Back to top">↑</button>
+        <p>
+            <strong>Plan:</strong>
+            <a href="contact.html#booking">Book a trip</a> |
+            <a href="contact.html#contact">Contact us</a> |
+            <a href="contact.html#account">Traveller account</a> |
+            <a href="index.html#faq">Travel FAQ</a>
+        </p>
 
-<footer class="lt-footer">
-<div class="container">
-<div class="row g-4">
-<div class="col-lg-4">
-<h2 class="h5">Lesotho Tourism</h2>
-<p>Your guide to the Kingdom in the Sky: mountains, waterfalls, dams, caves and the living culture of the Basotho.</p>
-</div>
-<div class="col-6 col-lg-2">
-<h3 class="h6">Explore</h3>
-<ul>
-<li><a href="destinations.html">Destinations</a></li>
-<li><a href="accommodation.html">Accommodation</a></li>
-<li><a href="activities.html">Activities</a></li>
-<li><a href="gallery.html">Gallery</a></li>
-</ul>
-</div>
-<div class="col-6 col-lg-3">
-<h3 class="h6">Plan</h3>
-<ul>
-<li><a href="contact.html#booking">Book a trip</a></li>
-<li><a href="contact.html#contact">Contact us</a></li>
-<li><a href="contact.html#account">Traveller account</a></li>
-<li><a href="index.html#faq">Travel FAQ</a></li>
-</ul>
-</div>
-<div class="col-lg-3">
-<h3 class="h6">Get in touch</h3>
-<address class="mb-0">Maseru, Lesotho<br><a href="mailto:hello@lesotho-tourism.example">hello@lesotho-tourism.example</a><br><a href="tel:+26622000000">+266 2200 0000</a></address>
-</div>
-</div>
-<hr class="border-light opacity-25 my-4">
-<p class="small mb-0">&copy; <span data-year>2026</span> Lesotho Tourism student.</p>
-</div>
-</footer>
+        <p>
+            Maseru, Lesotho<br>
+            <a href="mailto:hello@lesotho-tourism.example">hello@lesotho-tourism.example</a><br>
+            <a href="tel:+26622000000">+266 2200 0000</a>
+        </p>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<script src="js/data-fallback.js"></script>
-<script src="js/main.js"></script>
+        <hr>
+
+        <p>&copy; 2026 Lesotho Tourism student. All rights reserved.</p>
+    </footer>
+
 </body>
 </html>
