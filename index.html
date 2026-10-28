@@ -1,426 +1,492 @@
-<!DOCTYPE html>  <html lang="en" data-bs-theme="light">  
-<head>  
-<meta charset="utf-8">  
-<meta name="viewport" content="width=device-width, initial-scale=1">  <title>Home | Lesotho Tourism</title>  <meta name="description" content="Plan your trip to Lesotho, the Kingdom in the Sky: waterfalls, mountains, dams, caves and Basotho culture.">  
-<meta name="theme-color" content="#0a1650">  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">  <link rel="preconnect" href="https://fonts.googleapis.com">  
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">  <link href="css/style.css" rel="stylesheet">  <style>  
-.destination-card {  
-    height: 100%;  
-    overflow: hidden;  
-    border-radius: 16px;  
-    background: var(--bs-body-bg);  
-    border: 1px solid var(--bs-border-color);  
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);  
-    transition: transform 0.25s ease;  
-}  
-  
-.destination-card:hover {  
-    transform: translateY(-5px);  
-}  
-  
-.destination-image {  
-    width: 100%;  
-    height: 250px;  
-    display: block;  
-    object-fit: cover;  
-    background: #e9ecef;  
-}  
-  
-.destination-card-content {  
-    padding: 20px;  
-}  
-  
-.destination-card h3 {  
-    font-size: 1.3rem;  
-    font-weight: 700;  
-}  
-  
-.destination-card p {  
-    line-height: 1.6;  
-}  
-  
-@media (max-width: 576px) {  
-    .destination-image {  
-        height: 220px;  
-    }  
-}  
-</style>  </head>  <body>  <a class="skip-link" href="#main">Skip to main content</a>
 
-<header>  <nav class="navbar navbar-expand-xl lt-nav" aria-label="Main navigation">  <div class="container">  <a class="navbar-brand" href="index.html">  
-<img src="images/logo.svg" alt="" width="38" height="38">  
-<span>Lesotho Tourism</span>  
-</a>  <button class="navbar-toggler" type="button"  
-data-bs-toggle="collapse"  
-data-bs-target="#mainMenu"  
-aria-controls="mainMenu"  
-aria-expanded="false"  
-aria-label="Open or close the menu">
-<span class="navbar-toggler-icon"></span>
-</button>
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<div class="collapse navbar-collapse" id="mainMenu">  <ul class="navbar-nav me-auto mb-2 mb-xl-0 ms-xl-3">  <li class="nav-item">  
-<a class="nav-link active" href="index.html">Home</a>  
-</li>  <li class="nav-item dropdown">  <a class="nav-link dropdown-toggle" href="#"  
-role="button"  
-data-bs-toggle="dropdown"  
-aria-expanded="false">
-Destinations
-</a>
+    <title>Home | Lesotho Tourism</title>
 
-<ul class="dropdown-menu">  <li>  
-<a class="dropdown-item" href="destinations.html">All 25 places</a>  
-</li>  <li><hr class="dropdown-divider"></li>  <li>  
-<a class="dropdown-item" href="destinations.html?cat=Mountains%20%26%20Nature">Mountains &amp; Nature</a>  
-</li>  <li>  
-<a class="dropdown-item" href="destinations.html?cat=Dams%20%26%20Highlands">Dams &amp; Highlands</a>  
-</li>  <li>  
-<a class="dropdown-item" href="destinations.html?cat=History%20%26%20Culture">History &amp; Culture</a>  
-</li>  <li>  
-<a class="dropdown-item" href="destinations.html?cat=More%20to%20explore">More to explore</a>  
-</li>  </ul>  
-</li>  <li class="nav-item">  
-<a class="nav-link" href="accommodation.html">Accommodation</a>  
-</li>  <li class="nav-item">  
-<a class="nav-link" href="activities.html">Activities</a>  
-</li>  <li class="nav-item">  
-<a class="nav-link" href="gallery.html">Gallery</a>  
-</li>  <li class="nav-item">  
-<a class="nav-link" href="contact.html">Contact</a>  
-</li>  </ul>  <div class="nav-tools">  <a class="icon-btn text-decoration-none"  
-href="contact.html#account"  
-data-welcome>
-Sign up
-</a>
+    <meta name="description" content="Explore Lesotho's mountains, waterfalls, dams, caves and Basotho culture.">
 
-<button class="icon-btn"  
-type="button"  
-data-theme-toggle  
-aria-pressed="false"  
-aria-label="Switch between light and dark mode">
-<span class="ico" aria-hidden="true">☾</span>
-<span class="label">Dark mode</span>
-</button>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
 
-</div>  
-</div>  
-</div>  
-</nav>  <div class="flag-stripe" role="presentation"></div>  </header>  <main id="main">  <section class="hero" aria-labelledby="heroTitle">  <div class="container hero-pad">  <div class="reveal-hero">  <h1 id="heroTitle">Lesotho, the Kingdom in the Sky</h1>  <p class="lead mb-4" style="max-width:34rem">  
-A whole country above 1,400 metres. Walk to waterfalls,  
-ride a Basotho pony, ski in July and sleep beside a dam.  
-</p>  <form id="heroSearch"  
-class="hero-search"  
-role="search"  
-aria-label="Search destinations">  <label for="heroQuery" class="visually-hidden">Search destinations</label>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
 
-<input id="heroQuery"  
-type="search"  
-placeholder="Try falls, ski or museum"  
-autocomplete="off">
+        .hero {
+            background: #0a1650;
+            color: white;
+            padding: 80px 0;
+        }
 
-<button class="btn btn-green" type="submit">Find places</button>
+        .destination-card {
+            height: 100%;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            overflow: hidden;
+        }
 
-</form>  <div class="d-flex flex-wrap gap-2 mt-4">  <a class="btn btn-ghost-light" href="destinations.html">Browse all 25 places</a>
+        .destination-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
 
-<a class="btn btn-ghost-light" href="contact.html#booking">Plan my trip</a>
+        .destination-card-content {
+            padding: 20px;
+        }
 
-</div>  
-</div>  
-</div>  
-</section>  <section class="section pb-0" aria-label="Quick facts">  <div class="container">  <div class="row g-3">  <div class="col-6 col-lg-3">  
-<div class="fact">  
-<strong>1,400 m</strong>  
-Lowest point of the country, the highest in the world  
-</div>  
-</div>  <div class="col-6 col-lg-3">  
-<div class="fact">  
-<strong>3,482 m</strong>  
-Thabana Ntlenyana, the roof of Southern Africa  
-</div>  
-</div>  <div class="col-6 col-lg-3">  
-<div class="fact">  
-<strong>25 places</strong>  
-Described in this guide, from falls to museums  
-</div>  
-</div>  <div class="col-6 col-lg-3">  
-<div class="fact">  
-<strong>Jun to Aug</strong>  
-Snow season on the high peaks  
-</div>  
-</div>  </div>  
-</div>  
-</section>  <section class="section" aria-labelledby="featTitle">  <div class="container">  <div class="section-head d-flex flex-wrap justify-content-between align-items-end gap-3">  <div>  
-<h2 id="featTitle">Places to start with</h2>  
-<p class="mb-0 text-muted-lt">  
-Explore Lesotho's beautiful destinations through photographs.  
-</p>  
-</div>  <a class="btn btn-ghost" href="destinations.html">See all destinations</a>
+        .fact {
+            background: #f1f3f5;
+            padding: 20px;
+            border-radius: 8px;
+            height: 100%;
+        }
 
-</div>  <div class="row g-4" id="featuredGrid">  <div class="col-md-6 col-lg-4">  
-<article class="destination-card">  
-<img src="images/maletsunyanefalls.jpg"  
-alt="Maletsunyane Falls in Lesotho"  
-class="destination-image"  
-loading="lazy"  
-onerror="this.onerror=null;this.src='images/ribaneng.jpg';">  
-<div class="destination-card-content">  
-<h3>Maletsunyane Falls</h3>  
-<p>Discover spectacular waterfalls surrounded by the mountains of Lesotho.</p>  
-<a href="destinations.html" class="btn btn-green">Explore destination</a>  
-</div>  
-</article>  
-</div>  <div class="col-md-6 col-lg-4">  
-<article class="destination-card">  
-<img src="images/katse_dam.jpg"  
-alt="Katse Dam and the surrounding highlands"  
-class="destination-image"  
-loading="lazy">  
-<div class="destination-card-content">  
-<h3>Katse Dam</h3>  
-<p>Enjoy magnificent water views and beautiful mountain scenery.</p>  
-<a href="destinations.html" class="btn btn-green">Explore destination</a>  
-</div>  
-</article>  
-</div>  <div class="col-md-6 col-lg-4">  
-<article class="destination-card">  
-<img src="images/afriski-mountain-resort.jpg"  
-alt="Afriski Mountain Resort"  
-class="destination-image"  
-loading="lazy">  
-<div class="destination-card-content">  
-<h3>Afriski Mountain Resort</h3>  
-<p>Experience the highlands, mountain activities and winter skiing.</p>  
-<a href="destinations.html" class="btn btn-green">Explore destination</a>  
-</div>  
-</article>  
-</div>  <div class="col-md-6 col-lg-4">  
-<article class="destination-card">  
-<img src="images/tsehlanyane.jpg"  
-alt="Tsehlanyane National Park"  
-class="destination-image"  
-loading="lazy">  
-<div class="destination-card-content">  
-<h3>Tsehlanyane National Park</h3>  
-<p>Explore natural forests, green landscapes and mountain trails.</p>  
-<a href="destinations.html" class="btn btn-green">Explore destination</a>  
-</div>  
-</article>  
-</div>  <div class="col-md-6 col-lg-4">  
-<article class="destination-card">  
-<img src="images/sehlabathebe_national_park.jpg"  
-alt="Sehlabathebe National Park"  
-class="destination-image"  
-loading="lazy">  
-<div class="destination-card-content">  
-<h3>Sehlabathebe National Park</h3>  
-<p>Discover the remote highlands and remarkable natural scenery.</p>  
-<a href="destinations.html" class="btn btn-green">Explore destination</a>  
-</div>  
-</article>  
-</div>  <div class="col-md-6 col-lg-4">  
-<article class="destination-card">  
-<img src="images/ribaneng.jpg"  
-alt="Ribaneng Falls in Lesotho"  
-class="destination-image"  
-loading="lazy">  
-<div class="destination-card-content">  
-<h3>Ribaneng Falls</h3>  
-<p>Enjoy waterfalls, rocky cliffs and the beauty of the highlands.</p>  
-<a href="destinations.html" class="btn btn-green">Explore destination</a>  
-</div>  
-</article>  
-</div>  </div>  
-</div>  
-</section>  <section class="section section-alt" aria-labelledby="whyTitle">  <div class="container">  <div class="section-head">  
-<h2 id="whyTitle">Why Basotho hospitality makes the trip</h2>  
-</div>  <div class="row g-4">  <article class="col-md-6 col-xl-4">  
-<h3 class="h4">Mountains you can reach</h3>  
-<p>  
-Tsehlanyane, Bokong and Sehlabathebe offer trails,  
-rivers and remarkable highland plants.  
-</p>  
-<ul>  
-<li>Day hikes from 1 to 6 hours</li>  
-<li>Birdwatching at Bokong</li>  
-<li>Remote camping at Sehlabathebe</li>  
-</ul>  
-</article>  <article class="col-md-6 col-xl-4">  
-<h3 class="h4">A living culture</h3>  
-<p>  
-Thaba Bosiu tells the story of King Moshoeshoe I.  
-Morija offers museums, crafts and cultural festivals.  
-</p>  
-<ul>  
-<li>Guided history walks</li>  
-<li>Cave houses at Ha Kome</li>  
-<li>Handmade hats, blankets and baskets</li>  
-</ul>  
-</article>  <article class="col-md-12 col-xl-4">  
-<h3 class="h4">Slow, wide adventure</h3>  
-<p>  
-Ride a pony to a village, visit Maletsunyane Falls  
-or enjoy a boat trip across Katse Dam.  
-</p>  
-<ul>  
-<li>Pony trekking from Malealea</li>  
-<li>Skiing in winter</li>  
-<li>Dam and gorge viewpoints</li>  
-</ul>  
-</article>  </div>  
-</div>  
-</section>  <section class="section" id="faq" aria-labelledby="faqTitle">  <div class="container">  <div class="row gy-4 gx-lg-5">  <div class="col-lg-4">  
-<h2 id="faqTitle">Before you go</h2>  
-<p>  
-Short answers to common visitor questions.  
-Confirm travel rules and prices before travelling.  
-</p>  
-</div>  <div class="col-lg-8">  <div class="accordion" id="faqAccordion">  <div class="accordion-item">  
-<h3 class="accordion-header">  
-<button class="accordion-button"  
-type="button"  
-data-bs-toggle="collapse"  
-data-bs-target="#f1"  
-aria-expanded="true"  
-aria-controls="f1">  
-When is the best time to visit?  
-</button>  
-</h3>  
-<div id="f1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">  
-<div class="accordion-body">  
-September to May suits hiking and waterfalls.  
-June to August is suitable for snow and skiing,  
-with cold nights. December to February brings  
-the heaviest rain.  
-</div>  
-</div>  
-</div>  <div class="accordion-item">  
-<h3 class="accordion-header">  
-<button class="accordion-button collapsed"  
-type="button"  
-data-bs-toggle="collapse"  
-data-bs-target="#f2"  
-aria-expanded="false"  
-aria-controls="f2">  
-What money do I need?  
-</button>  
-</h3>  
-<div id="f2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">  
-<div class="accordion-body">  
-The currency is the loti (plural maloti, written M).  
-The South African rand is also widely accepted.  
-Carry cash for villages and mountain areas.  
-</div>  
-</div>  
-</div>  <div class="accordion-item">  
-<h3 class="accordion-header">  
-<button class="accordion-button collapsed"  
-type="button"  
-data-bs-toggle="collapse"  
-data-bs-target="#f3"  
-aria-expanded="false"  
-aria-controls="f3">  
-How do I get around?  
-</button>  
-</h3>  
-<div id="f3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">  
-<div class="accordion-body">  
-Minibus taxis connect towns. For the highlands,  
-consider a suitable vehicle or a guided transfer.  
-Avoid mountain passes at night or in snowy conditions.  
-</div>  
-</div>  
-</div>  <div class="accordion-item">  
-<h3 class="accordion-header">  
-<button class="accordion-button collapsed"  
-type="button"  
-data-bs-toggle="collapse"  
-data-bs-target="#f4"  
-aria-expanded="false"  
-aria-controls="f4">  
-Do I need a visa?  
-</button>  
-</h3>  
-<div id="f4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">  
-<div class="accordion-body">  
-Visa requirements depend on your passport.  
-Check with the nearest Lesotho embassy or  
-immigration department before booking.  
-</div>  
-</div>  
-</div>  </div>  
-</div>  
-</div>  
-</div>  
-</section>  <section class="section band" aria-labelledby="ctaTitle">  <div class="container position-relative">  <div class="row align-items-center g-4">  <div class="col-lg-8">  
-<h2 id="ctaTitle">Ready to see the Kingdom in the Sky?</h2>  
-<p class="mb-0">  
-Choose a place, pick your dates and get an instant  
-cost estimate. We will confirm availability by email.  
-</p>  
-</div>  <div class="col-lg-4 text-lg-end">  
-<a class="btn btn-green btn-lg" href="contact.html#booking">Book a trip</a>  
-</div>  </div>  
-</div>  
-</section>  </main>  <div class="modal fade"  
-id="detailsModal"  
-tabindex="-1"  
-aria-labelledby="detailsTitle"  
-aria-hidden="true">  <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable">  <div class="modal-content" style="border-radius:18px;overflow:hidden">  <div class="modal-header">  <h2 class="modal-title h4" id="detailsTitle" data-m-title>Destination details</h2>  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        .fact strong {
+            display: block;
+            font-size: 24px;
+            color: #0a1650;
+        }
 
-</div>  <div class="modal-body">  <div class="row g-4 align-items-start">  <div class="col-md-6">  
-<img data-m-img  
-src="images/Maletsunyanefalls.jpg"  
-alt="Destination photograph"  
-class="w-100 rounded-3"  
-width="800"  
-height="600">  
-</div>  <div class="col-md-6">  <p><span class="badge badge-cat" data-m-cat></span></p>  <dl class="mb-3">  
-<dt>Where</dt>  
-<dd data-m-region></dd>  <dt>About</dt>  
-<dd data-m-summary></dd>  <dt>Best for</dt>  
-<dd data-m-best class="mb-0"></dd>  
-</dl>  </div>  
-</div>  
-</div>  <div class="modal-footer">  <button type="button" class="btn btn-ghost" data-bs-dismiss="modal">Close</button>
+        .btn-green {
+            background: #198754;
+            color: white;
+        }
 
-<a class="btn btn-green" data-m-book href="contact.html#booking">Plan a visit here</a>
+        .btn-green:hover {
+            background: #146c43;
+            color: white;
+        }
 
-</div>  
-</div>  
-</div>  
-</div>  <button type="button" class="to-top" id="toTop" aria-label="Back to top">↑</button>
+        .section {
+            padding: 55px 0;
+        }
 
-<footer class="lt-footer">  <div class="container">  <div class="row g-4">  <div class="col-lg-4">  
-<h2 class="h5">Lesotho Tourism</h2>  
-<p>  
-Your guide to the Kingdom in the Sky: mountains,  
-waterfalls, dams, caves and the living culture of the Basotho.  
-</p>  
-</div>  <div class="col-6 col-lg-2">  
-<h3 class="h6">Explore</h3>  
-<ul>  
-<li><a href="destinations.html">Destinations</a></li>  
-<li><a href="accommodation.html">Accommodation</a></li>  
-<li><a href="activities.html">Activities</a></li>  
-<li><a href="gallery.html">Gallery</a></li>  
-</ul>  
-</div>  <div class="col-6 col-lg-3">  
-<h3 class="h6">Plan</h3>  
-<ul>  
-<li><a href="contact.html#booking">Book a trip</a></li>  
-<li><a href="contact.html#contact">Contact us</a></li>  
-<li><a href="contact.html#account">Traveller account</a></li>  
-<li><a href="index.html#faq">Travel FAQ</a></li>  
-</ul>  
-</div>  <div class="col-lg-3">  
-<h3 class="h6">Get in touch</h3>  
-<address class="mb-0">  
-Maseru, Lesotho<br>  
-<a href="mailto:hello@lesotho-tourism.example">hello@lesotho-tourism.example</a><br>  
-<a href="tel:+26622000000">+266 2200 0000</a>  
-</address>  
-</div>  </div>  <hr class="border-light opacity-25 my-4">  <p class="small mb-0">  
-&copy; <span data-year>2026</span>  
-Lesotho Tourism visit.  
-</p>  </div>  
-</footer>  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>  <script src="js/data-fallback.js"></script>  <script src="js/main.js"></script>  <script src="js/home.js"></script>  </body>  
-</html> 
+        .section-alt {
+            background: #f1f3f5;
+        }
+
+        footer {
+            background: #0a1650;
+            color: white;
+            padding: 40px 0;
+        }
+
+        footer a {
+            color: white;
+        }
+
+        @media (max-width: 576px) {
+            .hero {
+                padding: 50px 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+
+            <a class="navbar-brand" href="index.html">
+                <img src="images/logo.svg" alt="" width="35" height="35">
+                Lesotho Tourism
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="mainMenu">
+
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">Home</a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Destinations</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="destinations.html">All 25 Places</a></li>
+                            <li><a class="dropdown-item" href="destinations.html?cat=Mountains%20%26%20Nature">Mountains and Nature</a></li>
+                            <li><a class="dropdown-item" href="destinations.html?cat=Dams%20%26%20Highlands">Dams and Highlands</a></li>
+                            <li><a class="dropdown-item" href="destinations.html?cat=History%20%26%20Culture">History and Culture</a></li>
+                            <li><a class="dropdown-item" href="destinations.html?cat=More%20to%20explore">More to Explore</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item"><a class="nav-link" href="accommodation.html">Accommodation</a></li>
+                    <li class="nav-item"><a class="nav-link" href="activities.html">Activities</a></li>
+                    <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                </ul>
+
+                <a class="btn btn-outline-success me-2" href="contact.html#account">Sign Up</a>
+
+                <button class="btn btn-dark" type="button" id="themeButton">
+                    Dark Mode
+                </button>
+
+            </div>
+        </div>
+    </nav>
+</header>
+
+<main>
+
+    <section class="hero">
+        <div class="container">
+
+            <h1>Lesotho, the Kingdom in the Sky</h1>
+
+            <p class="lead">
+                A whole country above 1,400 metres. Visit waterfalls,
+                ride a Basotho pony, ski in winter and enjoy beautiful dams.
+            </p>
+
+            <form id="heroSearch" class="d-flex flex-wrap gap-2">
+                <input class="form-control" style="max-width:350px" id="heroQuery" type="search" placeholder="Search falls, skiing or museums">
+
+                <button class="btn btn-green" type="submit">Find Places</button>
+            </form>
+
+            <div class="mt-4">
+                <a class="btn btn-outline-light me-2" href="destinations.html">Browse All 25 Places</a>
+                <a class="btn btn-outline-light" href="contact.html#booking">Plan My Trip</a>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="section pb-0">
+        <div class="container">
+            <h2 class="mb-4">Quick Facts About Lesotho</h2>
+
+            <div class="row g-3">
+
+                <div class="col-6 col-lg-3">
+                    <div class="fact">
+                        <strong>1,400 m</strong>
+                        Lowest point of Lesotho
+                    </div>
+                </div>
+
+                <div class="col-6 col-lg-3">
+                    <div class="fact">
+                        <strong>3,482 m</strong>
+                        Thabana Ntlenyana, Southern Africa's highest peak
+                    </div>
+                </div>
+
+                <div class="col-6 col-lg-3">
+                    <div class="fact">
+                        <strong>25 Places</strong>
+                        Destinations in this travel guide
+                    </div>
+                </div>
+
+                <div class="col-6 col-lg-3">
+                    <div class="fact">
+                        <strong>June–August</strong>
+                        Winter snow season
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+
+            <div class="d-flex justify-content-between align-items-center flex-wrap gap-3 mb-4">
+                <div>
+                    <h2>Places to Start With</h2>
+                    <p>Discover some of Lesotho's most beautiful destinations.</p>
+                </div>
+
+                <a class="btn btn-green" href="destinations.html">See All Destinations</a>
+            </div>
+
+            <div class="row g-4" id="featuredGrid">
+
+                <div class="col-md-6 col-lg-4">
+                    <article class="destination-card">
+                        <img src="images/maletsunyanefalls.jpg" alt="Maletsunyane Falls" loading="lazy">
+                        <div class="destination-card-content">
+                            <h3>Maletsunyane Falls</h3>
+                            <p>Discover spectacular waterfalls surrounded by mountains.</p>
+                            <a href="destinations.html" class="btn btn-green">Explore Destination</a>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <article class="destination-card">
+                        <img src="images/katse_dam.jpg" alt="Katse Dam" loading="lazy">
+                        <div class="destination-card-content">
+                            <h3>Katse Dam</h3>
+                            <p>Enjoy beautiful water views and mountain scenery.</p>
+                            <a href="destinations.html" class="btn btn-green">Explore Destination</a>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <article class="destination-card">
+                        <img src="images/afriski-mountain-resort.jpg" alt="Afriski Mountain Resort" loading="lazy">
+                        <div class="destination-card-content">
+                            <h3>Afriski Mountain Resort</h3>
+                            <p>Experience mountain activities and winter skiing.</p>
+                            <a href="destinations.html" class="btn btn-green">Explore Destination</a>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <article class="destination-card">
+                        <img src="images/tsehlanyane.jpg" alt="Tsehlanyane National Park" loading="lazy">
+                        <div class="destination-card-content">
+                            <h3>Tsehlanyane National Park</h3>
+                            <p>Explore forests, green landscapes and mountain trails.</p>
+                            <a href="destinations.html" class="btn btn-green">Explore Destination</a>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <article class="destination-card">
+                        <img src="images/sehlabathebe_national_park.jpg" alt="Sehlabathebe National Park" loading="lazy">
+                        <div class="destination-card-content">
+                            <h3>Sehlabathebe National Park</h3>
+                            <p>Discover remote highlands and remarkable scenery.</p>
+                            <a href="destinations.html" class="btn btn-green">Explore Destination</a>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <article class="destination-card">
+                        <img src="images/ribaneng.jpg" alt="Ribaneng Falls" loading="lazy">
+                        <div class="destination-card-content">
+                            <h3>Ribaneng Falls</h3>
+                            <p>Enjoy waterfalls, rocky cliffs and mountain views.</p>
+                            <a href="destinations.html" class="btn btn-green">Explore Destination</a>
+                        </div>
+                    </article>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-alt">
+        <div class="container">
+
+            <h2 class="mb-4">Why Visit Lesotho?</h2>
+
+            <div class="row g-4">
+
+                <div class="col-md-4">
+                    <h3>Mountains and Nature</h3>
+                    <p>Explore Tsehlanyane, Bokong and Sehlabathebe through hiking, birdwatching and camping.</p>
+                    <ul>
+                        <li>Mountain hiking</li>
+                        <li>Birdwatching</li>
+                        <li>Camping and nature walks</li>
+                    </ul>
+                </div>
+
+                <div class="col-md-4">
+                    <h3>History and Culture</h3>
+                    <p>Discover the history of King Moshoeshoe I and experience Basotho traditions.</p>
+                    <ul>
+                        <li>Thaba Bosiu historical site</li>
+                        <li>Ha Kome cave houses</li>
+                        <li>Morija museums and festivals</li>
+                        <li>Traditional hats, blankets and baskets</li>
+                    </ul>
+                </div>
+
+                <div class="col-md-4">
+                    <h3>Adventure</h3>
+                    <p>Enjoy outdoor activities and unforgettable experiences in the highlands.</p>
+                    <ul>
+                        <li>Pony trekking at Malealea</li>
+                        <li>Winter skiing</li>
+                        <li>Boat trips at Katse Dam</li>
+                        <li>Waterfalls and mountain viewpoints</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="faq">
+        <div class="container">
+
+            <h2>Before You Go</h2>
+            <p>Read these answers before planning your trip.</p>
+
+            <div class="accordion" id="faqAccordion">
+
+                <div class="accordion-item">
+                    <h3 class="accordion-header">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                            When is the best time to visit?
+                        </button>
+                    </h3>
+                    <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            September to May is suitable for hiking and waterfalls. June to August is best for snow and skiing. December to February usually brings heavier rain.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h3 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                            What money do I need?
+                        </button>
+                    </h3>
+                    <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Lesotho uses the loti, with maloti as the plural. The South African rand is also widely accepted. Carry cash when visiting villages and mountain areas.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h3 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                            How do I get around?
+                        </button>
+                    </h3>
+                    <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Minibus taxis connect towns. A suitable vehicle or guided transfer may be needed for the highlands. Avoid mountain passes at night or in snowy conditions.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h3 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
+                            Do I need a visa?
+                        </button>
+                    </h3>
+                    <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Visa requirements depend on your passport. Check with a Lesotho embassy or the immigration department before travelling.
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-alt">
+        <div class="container text-center">
+            <h2>Ready to See the Kingdom in the Sky?</h2>
+            <p>Choose a destination, select your dates and plan your trip.</p>
+            <a class="btn btn-green btn-lg" href="contact.html#booking">Book a Trip</a>
+        </div>
+    </section>
+
+</main>
+
+<footer>
+    <div class="container">
+
+        <div class="row g-4">
+
+            <div class="col-lg-4">
+                <h2 class="h5">Lesotho Tourism</h2>
+                <p>Your guide to Lesotho's mountains, waterfalls, dams, caves and Basotho culture.</p>
+            </div>
+
+            <div class="col-6 col-lg-2">
+                <h3 class="h6">Explore</h3>
+                <ul>
+                    <li><a href="destinations.html">Destinations</a></li>
+                    <li><a href="accommodation.html">Accommodation</a></li>
+                    <li><a href="activities.html">Activities</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                </ul>
+            </div>
+
+            <div class="col-6 col-lg-3">
+                <h3 class="h6">Plan Your Trip</h3>
+                <ul>
+                    <li><a href="contact.html#booking">Book a Trip</a></li>
+                    <li><a href="contact.html#contact">Contact Us</a></li>
+                    <li><a href="contact.html#account">Traveller Account</a></li>
+                    <li><a href="index.html#faq">Travel FAQ</a></li>
+                </ul>
+            </div>
+
+            <div class="col-lg-3">
+                <h3 class="h6">Contact</h3>
+                <p>
+                    Maseru, Lesotho<br>
+                    <a href="mailto:hello@lesotho-tourism.example">hello@lesotho-tourism.example</a><br>
+                    <a href="tel:+26622000000">+266 2200 0000</a>
+                </p>
+            </div>
+
+        </div>
+
+        <hr>
+
+        <p class="mb-0">© <span id="year"></span> Lesotho Tourism</p>
+
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    const themeButton = document.getElementById("themeButton");
+
+    themeButton.addEventListener("click", function () {
+        const html = document.documentElement;
+
+        if (html.getAttribute("data-bs-theme") === "light") {
+            html.setAttribute("data-bs-theme", "dark");
+            document.body.style.backgroundColor = "#212529";
+            document.body.style.color = "#f8f9fa";
+            themeButton.textContent = "Light Mode";
+        } else {
+            html.setAttribute("data-bs-theme", "light");
+            document.body.style.backgroundColor = "#ffffff";
+            document.body.style.color = "#212529";
+            themeButton.textContent = "Dark Mode";
+        }
+    });
+
+    document.getElementById("heroSearch").addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        const query = document.getElementById("heroQuery").value.trim();
+
+        if (query !== "") {
+            window.location.href = "destinations.html?search=" + encodeURIComponent(query);
+        } else {
+            window.location.href = "destinations.html";
+        }
+    });
+</script>
+
+</body>
+</html>
